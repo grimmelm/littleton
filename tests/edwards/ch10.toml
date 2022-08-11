@@ -1,0 +1,18 @@
+title = "What Is the State of the Title?"
+chapter = 10
+
+[[tests]]
+citation = "Page 110"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for 10 years, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 110"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B divorces, then to C at the end of A's estate."""
+sexp = """
+"""

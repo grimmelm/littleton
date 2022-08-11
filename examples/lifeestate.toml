@@ -1,0 +1,113 @@
+title = "Life Estates, Reversions, and Remainders"
+
+[[examples]]
+description = "Life estate and explicit remainder"
+program = """
+To A for life, then to B.
+A dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Life estate and implied remainder"
+program = """
+To A for life.
+A dies.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Successive fee simples"
+program = """
+To A, then to B.
+A dies.
+"""
+result = "Fee simple in A's heirs."
+
+[[examples]]
+description = "Successive life estates"
+program = """
+To A for life, then to B for life, then to C.
+A dies.
+B dies.
+"""
+result = "Fee simple in C."
+
+[[examples]]
+description = "Owner of remainder in life estate dies before taking possession"
+program = """
+To A for life, then to B for life, then to C.
+B dies.
+A dies.
+"""
+result = "Fee simple in C."
+
+[[examples]]
+description = "Numerous successive life estates"
+program = """
+To A for life, then to B for life, then to C for life, then to D for life, then to E for life, then to F for life, then to G.
+"""
+result = "Life estate in A, remainders in life estate in B through F, remainder in fee simple in G."
+
+[[examples]]
+description = "Alternative life estate language"
+program = """
+To A while A is alive, then to B.
+"""
+result = "Life estate in A, remainder in fee simple in B."
+
+[[examples]]
+description = "Default language"
+program = """
+To A.
+"""
+result = "Fee simple in A."
+
+[[examples]]
+description = "Life estate pur autre vie"
+program = """
+To A for the life of B, then to C.
+A dies.
+B dies.
+"""
+result = "Fee simple in C."
+
+[[examples]]
+description = "Life estate pur autre vie by conveyance"
+program = """
+O conveys to A for life, then to B.
+A conveys to C.
+"""
+result = "Life estate in C for the life of A, remainder in fee simple in B."
+
+[[examples]]
+description = "Conveyance of life estate by life estate owner"
+program = """
+O conveys to A for life, then to B.
+A conveys to C for life.
+"""
+result = "Life estate in C for the life of A and C, reversion in life estate in A, remainder in fee simple in B."
+
+[[examples]]
+description = "Conveyance of life estate by remainder owner"
+program = """
+O conveys to A for life, then to B.
+B conveys to D for life.
+"""
+result = "Life estate in A, remainder in life estate in D, remainder in fee simple in B."
+
+[[examples]]
+description = "Reversion retains its nature when conveyed"
+program = """
+O conveys to A for life.
+O conveys to B.
+"""
+result = "Life estate in A, reversion in B."
+
+[[examples]]
+description = "Remainder retains its nature when conveyed"
+program = """
+O conveys to A for life, then to B.
+B conveys to O.
+"""
+result = "Life estate in A, remainder in O."

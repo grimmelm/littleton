@@ -1,0 +1,62 @@
+title = "Future Interests Retained by the Grantor"
+chapter = 4
+
+[[tests]]
+citation = "Page 40"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Page 42"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Page 43"
+program = """
+O owns Blackacre.
+(the land is used for a library).
+O conveys Blackacre to A and her heirs so long as (the land is used for a library)."""
+expected = """
+(Seq'
+ (While' Added
+  ((Occurs (Generic "the land is used for a library"))
+   ((Generic "the land is used for a library")))
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Positive condition required."
+
+[[tests]]
+citation = "Page 45"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs; however, if (the land is not used for library), then to O."""
+expected = """(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "the land is not used for library"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Page 47"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs, but if (A gets a divorce), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "A gets a divorce"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))"""

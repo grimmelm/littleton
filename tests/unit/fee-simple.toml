@@ -1,0 +1,159 @@
+title = "Fee Simple"
+
+[[tests]]
+description = "Ownership of a property"
+program = """
+O owns Blackacre."""
+sexp = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 1)))
+     (tree ())))))
+ (events ()))"""
+
+[[tests]]
+description = "Conveyance of a property"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A."""
+sexp = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 2)))
+     (tree ())))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Explicit specification of fee simple"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A and his heirs."""
+ sexp = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+        (serial 2)))
+      (tree ())))))
+  (events ()))"""
+
+  [[tests]]
+  description = "Explicit specification of fee simple"
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A and her heirs."""
+  graph = """
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+         (serial 2)))
+       (tree ())))))
+   (events ()))"""
+
+   [[tests]]
+   description = "Explicit specification of fee simple"
+   program = """
+   O owns Blackacre.
+   O conveys Blackacre to A."""
+   graph = """
+   ((ownership
+     ((Blackacre
+       ((root
+         ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+          (serial 2)))
+        (tree ())))))
+    (events ()))"""
+
+
+ [[tests]]
+ description = "Conveyance of a property to oneself is effective but has no consequences"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to O."""
+ graph = """
+ ((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 2)))
+     (tree ())))))
+ (events ()))"""
+
+ [[tests]]
+ description = "A conveyance by a non-owner is ineffective"
+ program = """
+ O owns Blackacre.
+ A conveys Blackacre to B."""
+ graph = """
+ ((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 1)))
+     (tree ())))))
+ (events ()))"""
+
+ [[tests]]
+ description = "A second conveyance of the same property is ineffective"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A.
+ O conveys Blackacre to B."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+        (serial 2)))
+      (tree ())))))
+  (events ()))"""
+
+  [[tests]]
+  description = "A conveyance before the grantor takes ownership is ineffective"
+  program = """
+  O owns Blackacre.
+  A conveys Blackacre to B.
+  O conveys Blackacre to A."""
+  graph = """
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration FeeSimple) (conveyed false)
+         (serial 2)))
+       (tree ())))))
+   (events ()))"""
+
+[[tests]]
+description = "Multiple successive conveyances"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A.
+ A conveys Blackacre to B."""
+graph = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner B) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 3)))
+     (tree ())))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Conveyance back to original grantor is effective"
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A.
+  A conveys Blackacre to O."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+        (serial 3)))
+      (tree ())))))
+  (events ()))"""

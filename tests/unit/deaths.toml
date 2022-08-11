@@ -1,0 +1,159 @@
+title = "Life Estates with Deaths"
+
+[[tests]]
+description = "Reversion becomes possessory"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+A dies."""
+sexp = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 3)))
+     (tree ())))))
+ (events ((Death A))))"""
+
+ [[tests]]
+ description = "Remainder becomes possessory"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B.
+ A dies."""
+ sexp = """
+ ((ownership
+  ((Blackacre
+    ((root
+      ((owner B) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 3)))
+     (tree ())))))
+ (events ((Death A))))"""
+
+
+ [[tests]]
+ description = "Remainder in life estate becomes possessory"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B for life.
+ A dies."""
+ sexp="""
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner B) (nature Possessory) (duration Life) (conveyed false)
+        (serial 3)))
+      (tree
+       ((((owner B) (nature Possessory) (duration Life) (conveyed false)
+          (serial 3))
+         (Condition (ForLife B))
+         ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+          (serial 4)))))))))
+  (events ((Death A))))"""
+
+  [[tests]]
+  description = "Multiple deaths"
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life, then to B for life.
+  A dies.
+  B dies."""
+  sexp="""
+  ((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 4)))
+     (tree ())))))
+ (events ((Death B) (Death A))))"""
+
+ [[tests]]
+ description = "Death of owner of future interest in life estate"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B for life.
+ B dies."""
+sexp="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner O) (nature Remainder) (duration FeeSimple) (conveyed false)
+         (serial 4)))))))))
+ (events ((Death B))))"""
+
+ [[tests]]
+ description = "Multiple deaths out of order of interests"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B for life.
+ B dies.
+ A dies."""
+sexp="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 4)))
+     (tree ())))))
+ (events ((Death A) (Death B))))"""
+
+ [[tests]]
+ description = "Conveyance by life estate owner gives no more than he has"
+ program="""
+O owns Blackacre.
+O conveys Blackacre to A for life.
+A conveys Blackacre to C.
+A dies."""
+sexp="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner O) (nature Possessory) (duration FeeSimple) (conveyed false)
+       (serial 3)))
+     (tree ())))))
+ (events ((Death A))))"""
+
+[[tests]]
+description = "Conveyance by reversion owner becomes possessory at death of life tenant"
+program="""
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+B conveys Blackacre to C.
+A dies."""
+ sexp="""
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner C) (nature Possessory) (duration FeeSimple) (conveyed false)
+        (serial 4)))
+      (tree ())))))
+  (events ((Death A))))"""
+
+[[tests]]
+description = "Life estates within life estates processed correctly"
+program="""
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+A conveys Blackacre to C for life, then to D.
+C dies."""
+sexp="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner D) (nature Possessory) (duration Life) (conveyed false)
+       (serial 5)))
+     (tree
+      ((((owner D) (nature Possessory) (duration Life) (conveyed false)
+         (serial 5))
+        (Condition (ForLife A))
+        ((owner B) (nature Remainder) (duration FeeSimple) (conveyed false)
+         (serial 3)))))))))
+ (events ((Death C))))"""
+
+ 

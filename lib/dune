@@ -1,0 +1,11 @@
+(library
+ (name conveyances)
+ (public_name conveyances)
+ (libraries alcotest core_kernel mparser mparser-re menhirLib ocamlgraph
+            ppx_sexp_conv ppx_deriving.show re yojson toml)
+  (modules :standard )
+ (preprocess
+  (pps ppx_jane ppx_deriving_yojson)))
+(env
+ (dev
+  (flags (:standard -w -32))))

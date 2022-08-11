@@ -1,0 +1,85 @@
+title = "Examples for Onward! 2019"
+
+[[examples]]
+program = """
+O conveys Blackacre to A.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life.
+A dies.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, then to B.
+A dies.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for the life of X.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, then to B for life, then to C.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A until B marries.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A until B marries, then to C.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A, but if B marries then to C.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life until B marries.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, but if B marries then to C.
+A dies.
+B marries
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, then to B.
+A conveys Blackacre to C for life, then to D.
+"""
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, then to B for life, then to C for life.
+A dies.
+B dies.
+C dies."""
+
+
+[[examples]]
+program = """
+O conveys Blackacre to A for life, then to B for life, but if C marries then to C.
+A dies.
+C marries.
+"""
+
+[[examples]]
+program = """
+Olive owns Blackacre.
+Olive conveys Blackacre to Alice for life, then to Bob for life until Bob marries, then to Carol.
+Alice dies.
+Bob conveys Blackacre to Dave for life.
+Bob marries.
+"""

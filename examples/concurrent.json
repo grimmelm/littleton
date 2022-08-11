@@ -1,0 +1,99 @@
+[
+  "Examples",
+  {
+    "title": "Concurrent Interests",
+    "examples": [
+      {
+        "description": null,
+        "result": "A and B have 1/2 shares as tenants in common",
+        "program": "To A and B as tenants in common.\n"
+      },
+      {
+        "description": null,
+        "result": "A, B, C, and D have 1/4 shares as tenants in common",
+        "program":
+          "To A and B and C and D as tenants in common.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "C has a 1/2 share, and a 1/2 share is divided into a life estate in D and a remainder in B.",
+        "program":
+          "O conveys to A and B as tenants in common.\nA conveys to C.\nB conveys to D for life.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "O conveys to A and B as tenants in common.\nA conveys to B.\n"
+      },
+      {
+        "description": null,
+        "result": "3/4 share in B, 1/4 share in D",
+        "program":
+          "O conveys to A and B as tenants in common.\nA conveys to C and D as tenants in common.\nC conveys to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "A and B share a life estate for the life of A; C and D share a remainder in fee simple.",
+        "program":
+          "O conveys to A and B as tenants in common for the life of A, then to C and D as tenants in common.\n"
+      },
+      {
+        "description": null,
+        "result": "A and B are joint tenants in fee simple.",
+        "program":
+          "O conveys to A and B as joint tenants.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "O conveys to A and B as joint tenants.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "B and C are tenants in common.",
+        "program":
+          "O conveys to A and B as joint tenants.\nA conveys to C.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "B and C are joint tenants with each other, and tenants in common with respect to D.",
+        "program":
+          "O conveys to A and B and C as joint tenants.\nA conveys to D.\n"
+      },
+      {
+        "description": null,
+        "result": "A and B are tenants in common.",
+        "program": "O conveys to A and B.\n"
+      },
+      {
+        "description": null,
+        "result": "A and B are tenants by the entireties.",
+        "program":
+          "A marries B.\nO conveys to A and B as tenants by the entireties.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "A marries B.\nO conveys to A and B as tenants by the entireties.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "A and B are tenants by the entireties.",
+        "program":
+          "A marries B.\nO conveys to A and B as tenants by the entireties.\nA conveys to C.\n"
+      },
+      {
+        "description": null,
+        "result": "A and B are joint tenants.",
+        "program":
+          "O conveys to A and B as tenants by the entireties.\n"
+      }
+    ]
+  }
+]

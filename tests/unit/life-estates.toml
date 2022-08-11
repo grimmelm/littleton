@@ -1,0 +1,371 @@
+title = "Life Estate"
+
+[[tests]]
+description = "Conveyance of a property in life estate followed by reversion"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+graph = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+         (serial 3)))))))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Conveyance of a property in life estate followed by remainder"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration Life) (conveyed false)
+        (serial 2)))
+      (tree
+       ((((owner A) (nature Possessory) (duration Life) (conveyed false)
+          (serial 2))
+         (Condition (ForLife A))
+         ((owner B) (nature Remainder) (duration FeeSimple) (conveyed false)
+          (serial 3)))))))))
+  (events ()))"""
+
+  [[tests]]
+  description = "Successive life estates followed by reversion"
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life, then to B for life."""
+  graph = """
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2)))
+       (tree
+        ((((owner B) (nature Remainder) (duration Life) (conveyed false)
+           (serial 3))
+          (Condition (ForLife B))
+          ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+           (serial 4)))
+         (((owner A) (nature Possessory) (duration Life) (conveyed false)
+           (serial 2))
+          (Condition (ForLife A))
+          ((owner B) (nature Remainder) (duration Life) (conveyed false)
+           (serial 3)))))))))
+   (events ()))"""
+
+
+  [[tests]]
+  description = "Successive life estates followed by remainder"
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life, then to B for life, then to C."""
+  graph = """
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2)))
+       (tree
+        ((((owner B) (nature Remainder) (duration Life) (conveyed false)
+           (serial 3))
+          (Condition (ForLife B))
+          ((owner C) (nature Remainder) (duration FeeSimple) (conveyed false)
+           (serial 4)))
+         (((owner A) (nature Possessory) (duration Life) (conveyed false)
+           (serial 2))
+          (Condition (ForLife A))
+          ((owner B) (nature Remainder) (duration Life) (conveyed false)
+           (serial 3)))))))))
+   (events ()))"""
+
+
+ [[tests]]
+ description = "Life estates are alienable"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life.
+ A conveys Blackacre to B."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner B) (nature Possessory) (duration Life) (conveyed false)
+        (serial 4)))
+      (tree
+       ((((owner B) (nature Possessory) (duration Life) (conveyed false)
+          (serial 4))
+         (Condition (ForLife A))
+         ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+          (serial 3)))))))))
+  (events ()))"""
+
+ [[tests]]
+ description = "Reversions are alienable"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life.
+ O conveys Blackacre to B."""
+graph = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner B) (nature Reversion) (duration FeeSimple) (conveyed false)
+         (serial 4)))))))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Remainders are alienable"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B.
+ B conveys Blackacre to C."""
+graph = """
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner C) (nature Remainder) (duration FeeSimple) (conveyed false)
+         (serial 4)))))))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Remainders of less quantum than fee simple are alienable"
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B for life.
+ B conveys Blackacre to C."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration Life) (conveyed false)
+        (serial 2)))
+      (tree
+       ((((owner C) (nature Remainder) (duration Life) (conveyed false)
+          (serial 5))
+         (Condition (ForLife B))
+         ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+          (serial 4)))
+        (((owner A) (nature Possessory) (duration Life) (conveyed false)
+          (serial 2))
+         (Condition (ForLife A))
+         ((owner C) (nature Remainder) (duration Life) (conveyed false)
+          (serial 5)))))))))
+  (events ()))"""
+
+
+ [[tests]]
+ description = "Life estates can be subdivided."
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life.
+ A conveys Blackacre to B for life."""
+ graph = """
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration Life) (conveyed true)
+        (serial 2)))
+      (tree
+       ((((owner B) (nature Possessory) (duration Life) (conveyed false)
+          (serial 4))
+         (Condition (ForLife B))
+         ((owner A) (nature Reversion) (duration Life) (conveyed false)
+          (serial 5)))
+        (((owner A) (nature Possessory) (duration Life) (conveyed true)
+          (serial 2))
+         (Condition (ForLife A))
+         ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+          (serial 3)))
+        (((owner A) (nature Possessory) (duration Life) (conveyed true)
+          (serial 2))
+         Conveyance
+         ((owner B) (nature Possessory) (duration Life) (conveyed false)
+          (serial 4)))))))))
+  (events ()))"""
+
+  [[tests]]
+  description = "Life estates can be subdivided."
+  program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life.
+  A conveys Blackacre to B for life, then to C."""
+  graph="""
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration Life) (conveyed true)
+         (serial 2)))
+       (tree
+        ((((owner B) (nature Possessory) (duration Life) (conveyed false)
+           (serial 4))
+          (Condition (ForLife B))
+          ((owner C) (nature Remainder) (duration Life) (conveyed false)
+           (serial 5)))
+         (((owner A) (nature Possessory) (duration Life) (conveyed true)
+           (serial 2))
+          (Condition (ForLife A))
+          ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+           (serial 3)))
+         (((owner A) (nature Possessory) (duration Life) (conveyed true)
+           (serial 2))
+          Conveyance
+          ((owner B) (nature Possessory) (duration Life) (conveyed false)
+           (serial 4)))))))))
+   (events ()))"""
+
+ [[tests]]
+ description = "Reversions can be subdivided."
+ program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life.
+  O conveys Blackacre to B for life."""
+graph="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner B) (nature Reversion) (duration Life) (conveyed false)
+         (serial 4))
+        (Condition (ForLife B))
+        ((owner O) (nature Reversion) (duration FeeSimple) (conveyed false)
+         (serial 5)))
+       (((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner B) (nature Reversion) (duration Life) (conveyed false)
+         (serial 4)))))))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Reversions can be subdivided."
+ program = """
+  O owns Blackacre.
+  O conveys Blackacre to A for life.
+  O conveys Blackacre to B for life, then to C."""
+  graph="""
+  ((ownership
+    ((Blackacre
+      ((root
+        ((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2)))
+       (tree
+        ((((owner B) (nature Reversion) (duration Life) (conveyed false)
+           (serial 4))
+          (Condition (ForLife B))
+          ((owner C) (nature Remainder) (duration FeeSimple) (conveyed false)
+           (serial 5)))
+         (((owner A) (nature Possessory) (duration Life) (conveyed false)
+           (serial 2))
+          (Condition (ForLife A))
+          ((owner B) (nature Reversion) (duration Life) (conveyed false)
+           (serial 4)))))))))
+   (events ()))"""
+
+ [[tests]]
+ description = "Remainders can be subdivided."
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B.
+ B conveys Blackacre to C for life."""
+graph="""
+((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed false)
+       (serial 2)))
+     (tree
+      ((((owner C) (nature Remainder) (duration Life) (conveyed false)
+         (serial 4))
+        (Condition (ForLife C))
+        ((owner B) (nature Reversion) (duration FeeSimple) (conveyed false)
+         (serial 5)))
+       (((owner A) (nature Possessory) (duration Life) (conveyed false)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner C) (nature Remainder) (duration Life) (conveyed false)
+         (serial 4)))))))))
+ (events ()))"""
+
+ [[tests]]
+ description = "Remainders can be subdivided."
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B.
+ B conveys Blackacre to C for life, then to D."""
+ graph="""
+ ((ownership
+   ((Blackacre
+     ((root
+       ((owner A) (nature Possessory) (duration Life) (conveyed false)
+        (serial 2)))
+      (tree
+       ((((owner C) (nature Remainder) (duration Life) (conveyed false)
+          (serial 4))
+         (Condition (ForLife C))
+         ((owner D) (nature Remainder) (duration FeeSimple) (conveyed false)
+          (serial 5)))
+        (((owner A) (nature Possessory) (duration Life) (conveyed false)
+          (serial 2))
+         (Condition (ForLife A))
+         ((owner C) (nature Remainder) (duration Life) (conveyed false)
+          (serial 4)))))))))
+  (events ()))"""
+
+ [[tests]]
+ description = "Life estates and succeeding remainders can be simultaneously subdivided."
+ program = """
+ O owns Blackacre.
+ O conveys Blackacre to A for life, then to B.
+ A conveys Blackacre to C for life, then to D.
+ B conveys Blackacre to E for life, then to F."""
+ graph="""
+ ((ownership
+  ((Blackacre
+    ((root
+      ((owner A) (nature Possessory) (duration Life) (conveyed true)
+       (serial 2)))
+     (tree
+      ((((owner E) (nature Remainder) (duration Life) (conveyed false)
+         (serial 6))
+        (Condition (ForLife E))
+        ((owner F) (nature Remainder) (duration FeeSimple) (conveyed false)
+         (serial 7)))
+       (((owner C) (nature Possessory) (duration Life) (conveyed false)
+         (serial 4))
+        (Condition (ForLife C))
+        ((owner D) (nature Remainder) (duration Life) (conveyed false)
+         (serial 5)))
+       (((owner A) (nature Possessory) (duration Life) (conveyed true)
+         (serial 2))
+        (Condition (ForLife A))
+        ((owner E) (nature Remainder) (duration Life) (conveyed false)
+         (serial 6)))
+       (((owner A) (nature Possessory) (duration Life) (conveyed true)
+         (serial 2))
+        Conveyance
+        ((owner C) (nature Possessory) (duration Life) (conveyed false)
+         (serial 4)))))))))
+ (events ()))"""

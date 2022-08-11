@@ -1,0 +1,91 @@
+[
+  "Examples",
+  {
+    "title": "Onward! 2019",
+    "examples": [
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "Olive owns Blackacre.\nOlive conveys Blackacre to Alice for life, then to Bob for life until Bob marries, then to Carol.\nAlice dies.\nBob conveys Blackacre to Dave for life.\nBob marries.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, then to B for life, but if C marries then to C.\nA dies.\nC marries.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, then to B for life, then to C for life.\nA dies.\nB dies.\nC dies."
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, then to B.\nA conveys Blackacre to C for life, then to D.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, but if B marries then to C.\nA dies.\nB marries\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life until B marries.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A, but if B marries then to C.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A until B marries, then to C.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A until B marries.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, then to B for life, then to C.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for the life of X.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life, then to B.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program":
+          "O conveys Blackacre to A for life.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": null,
+        "program": "O conveys Blackacre to A.\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+title = "Basic tests"
+
+[[tests]]
+description = "Tests basic ownership."
+program = """
+O owns Blackacre.
+"""
+result = "Fee simple in O."
+
+[[tests]]
+description = "Tests fee simple conveyance."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A.
+"""
+result = "Fee simple in A."
+
+[[tests]]
+description = "Tests successive conveyances."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A.
+A conveys Blackacre to B.
+"""
+result = "Fee simple in B."
+
+[[tests]]
+description = "Tests conflicting conveyances by same grantor; first in time prevails."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A.
+O conveys Blackacre to B.
+A conveys Blackacre to C.
+"""
+result = "Fee simple in C."
+
+[[tests]]
+description = "Tests conveyance of life estate."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+"""
+result = "Life estate in A, reversion in O."
+
+[[tests]]
+description = "Tests conveyance of life estate, followed by remainder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+"""
+result = "Life estate in A, remainder in in B."
+
+[[tests]]
+description = "Tests conveyance by life estate holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+A conveys Blackacre to C.
+"""
+result = "Life estate in C, remainder in in B."
+
+[[tests]]
+description = "Tests conveyance of by remainder holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+B conveys Blackacre to C.
+"""
+result = "Life estate in A, remainder in in C."
+
+[[tests]]
+description = "Tests subdivision by holder of remainder interest."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+B conveys Blackacre to C for life, then to D.
+"""
+result = "Life estate in A, remainder in life estate in C, remainder in fee simple in D."
+
+[[tests]]
+description = "Tests subdivision by holder of life estate."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B for life.
+A conveys Blackacre to C for life, then to D.
+"""
+result = "Life estate in C, remainder in life estate in D, remainder in fee simple in D."
+
+[[tests]]
+description = "Tests preservation of nature of reversion during conveyance by another party."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+A conveys Blackacre to C.
+"""
+result = "Life estate in C, reversion in O."
+
+[[tests]]
+description = "Tests preservation of nature of reversion during conveyance by holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+O conveys Blackacre to C.
+"""
+result = "Life estate in A, reversion in C."

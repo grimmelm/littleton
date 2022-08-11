@@ -1,0 +1,91 @@
+title = "Vesting"
+
+[[examples]]
+description = "Vested remainder"
+program = """
+To A for life, then to B.
+"""
+result = "Life estate in A, vested remainder in fee simple in B."
+
+
+[[examples]]
+description = "Contingent remainder (explicit condition precedent)"
+program = """
+To A for life, then if B is married to B.
+"""
+result = "Life estate in A, contingent remainder in fee simple in B, reversion in fee simple in O."
+
+
+[[examples]]
+description = "Contingent remainder (implicit condition precedent)"
+program = """
+To A, but if B marries to B for life, then to C.
+"""
+result = "Fee simple subject to executory limitation in A, executory interest in life estate in B, contingent remainder in C."
+
+
+[[examples]]
+description = "Contingent remainder (unascertained grantee)"
+program = """
+To A for life, then to the widow of A."
+"""
+result = "Life estate in A, contingent remainder in fee simple in the widow of A, possibility of reverter in O."
+
+
+[[examples]]
+description = "Alternative contingent remainders"
+program = """
+To A for life, then if B survives A to B, otherwise to C.
+"""
+result = "Life estate in A, contingent remainder in fee simple in B, contingent remainder in fee simple in C."
+
+
+[[examples]]
+description = "Vesting in interest before vesting in possession"
+program = """
+To A for life, then if the property has been used as a school to B.
+The property is used as a school.
+"""
+result = "Life estate in A, vested remainder in fee simple in B."
+
+
+[[examples]]
+description = "Class gift vested subject to open"
+program = """
+To A for life, then to the children of A.
+A has child B.
+"""
+result = "Life estate in A, vested remainder subject to open in B."
+
+
+[[examples]]
+description = "Class gift to naturally closed class"
+program = """
+To A for life, then to the children of B.
+B has child C.
+B has child D.
+B dies.
+"""
+result = "Life estate in A, tenancy in common split 1/2 vested remainder in fee simple in C, 1/2 vested remainder in fee simple in D."
+
+
+[[examples]]
+description = "Class gift closed under the rule of convenience"
+program = """
+To A for life, then to the children of B.
+B has child C.
+A dies.
+B has child D.
+"""
+result = "Fee simple in C."
+
+
+[[examples]]
+description = "Destructibility of contingent remainders"
+program = """
+To A for life, then if B survives C to B.
+A dies.
+"""
+result = "Fee simple subject to executory interest in O, executory interest in fee simple in B."
+
+ 

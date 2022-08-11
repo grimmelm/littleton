@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$
+    $if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$" />
+    $endif$
+    $if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+    $endif$
+    $if(description-meta)$
+    <meta name="description" content="$description-meta$" />
+    $endif$
+    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+
+    <!-- Fonts -->
+    <link href="css/charter.css" rel="stylesheet">
+    <link href="css/merriweather-sans.css" rel="stylesheet">
+    <link href="css/fira_code.css" rel="stylesheet">
+    <link href="css/awesome.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+
+    <!-- Dependencies -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/railroad-diagrams.css" rel="stylesheet">
+
+    <!-- Theme for the site -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- JavaScript Dependencies -->
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Littleton Interpretation -->
+    <script src="js/site.bc.js"></script>
+
+    $for(header-includes)$
+    $header-includes$
+    $endfor$
+    $if(math)$
+    $math$
+    $endif$
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    $for(include-before)$
+    $include-before$
+    $endfor$
+
+    <nav class="navbar navbar-static-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-header">
+          <h1 class="navbar-brand"><a href="/">Interactive Future Interests (BETA)</a></h1>
+        </div>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#nav-links"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-links">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interpreter.html">Interpreter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="help.html">Help</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="textbook.html">Textbook</a>
+            </li>
+          </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="content"  class="container" >
+
+      $body$
+      $for(include-after)$
+      $include-after$
+      $endfor$
+
+    </div>
+
+    <script type="module">
+     import {attachHandlers} from './js/tutorial.js';
+     attachHandlers();
+    </script>
+  </body>
+</html>

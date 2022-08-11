@@ -1,0 +1,49 @@
+[
+  "Examples",
+  {
+    "title": "Tutorial",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program": "To A for life, then to B.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To A for life, then to B for life, then to C for life.\nB dies.\nA dies.\nC dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To Slughorn for life, but if Slughorn eats chocolate to Charlie Bucket.\nSlughorn dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in D.",
+        "program":
+          "O conveys to A.\nO conveys to B for life, then to C.\nA conveys Blackacre to D.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in Lear, contingent remainders in life estate in Goneril, contingent remainder in fee simple in Regan, contingent remainder in Cordelia.",
+        "program":
+          "To Lear for life, then if Goneril survives Regan to Goneril for life, otherwise to Regan, then to Cordelia and her heirs.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To A and eir heirs so long as A is unmarried.\nA marries B.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program": "To Tenant for 10 years.\n5 years pass.\n5 years pass.\n"
+      }
+    ]
+  }
+]

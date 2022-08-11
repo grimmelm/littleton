@@ -1,0 +1,29 @@
+opam-version: "2.0"
+available: [ ocaml-version >= "4.10.0" ]
+version: "0.1"
+maintainer: "basus@seas.harvard.edu"
+authors: ["Shrutarshi Basu" "James Grimmelmann" "Nate Foster"
+          "Ryan Richardson" "Shan Parikh"]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocamlfind"    {build}
+  "dune"         {build}
+  "async"        {>= "0.9.0"}
+  "alcotest"
+  "async"
+  "async_extra"
+  "cohttp"
+  "cohttp-async"
+  "core"         {>= "0.9.0"}
+  "menhir"
+  "mparser"      {>= "1.2.3"}
+  "mparser-re"   {>= "1.2.3"}
+  "ocamlgraph"   {>= "1.8.7"}
+  "ppx_sexp_conv"
+  "ppx_deriving"
+  "sexplib"
+  "toml"
+  "yojson"       {>= "1.2.0"}
+]

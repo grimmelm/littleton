@@ -1,0 +1,69 @@
+[
+  "Examples",
+  {
+    "title": "Vesting",
+    "examples": [
+      {
+        "description": null,
+        "result": "Life estate in A, vested remainder in fee simple in B.",
+        "program": "To A for life, then to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in fee simple in B, reversion in fee simple in O.",
+        "program": "To A for life, then if B is married to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple subject to executory limitation in A, executory interest in life estate in B, contingent remainder in C.",
+        "program": "To A, but if B marries to B for life, then to C.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in fee simple in the widow of A, possibility of reverter in O.",
+        "program": "To A for life, then to the widow of A.\"\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in fee simple in B, contingent remainder in fee simple in C.",
+        "program":
+          "To A for life, then if B survives A to B, otherwise to C.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, vested remainder in fee simple in B.",
+        "program":
+          "To A for life, then if the property has been used as a school to B.\nThe property is used as a school.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, vested remainder subject to open in B.",
+        "program":
+          "To A for life, then to the children of A.\nA has child B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, tenancy in common split 1/2 vested remainder in fee simple in C, 1/2 vested remainder in fee simple in D.",
+        "program":
+          "To A for life, then to the children of B.\nB has child C.\nB has child D.\nB dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "To A for life, then to the children of B.\nB has child C.\nA dies.\nB has child D.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple subject to executory interest in O, executory interest in fee simple in B.",
+        "program": "To A for life, then if B survives C to B.\nA dies.\n"
+      }
+    ]
+  }
+]

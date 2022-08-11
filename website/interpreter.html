@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Littleton: A Future Interests Interpreter</title>
+
+  <!-- Fonts -->
+  <link href="css/charter.css" rel="stylesheet">
+  <link href="css/merriweather-sans.css" rel="stylesheet">
+  <link href="css/fira_code.css" rel="stylesheet">
+  <link href="css/awesome.css" rel="stylesheet">
+  <link href="css/fontawesome.css" rel="stylesheet">
+
+  <!-- Dependencies -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/railroad-diagrams.css" rel="stylesheet">
+
+  <!-- Theme for the site -->
+  <link href="css/theme.css" rel="stylesheet">
+
+  <!-- JavaScript Dependencies -->
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Littleton Interpretation -->
+  <script src="js/site.bc.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-static-top  navbar-expand-lg">
+    <div class="container">
+      <div class="navbar-header">
+        <h1 class="navbar-brand"><a href="/">Littleton: A Future Interests Interpreter</a></h1>
+      </div>
+
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#nav-links"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-links">
+        <ul class="navbar-nav nav nav-pills ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="interpreter.html">Interpreter <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="textbook.html">Textbook</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" id="content">
+    <div class="row">
+
+      <div id="left" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <h2>Choose an example or write your own</h2>
+        <form action="#" id="entry_form">
+          <textarea class="form-control" rows="10" id="entry_text">
+To A for life, then to B and her heirs.
+A dies.
+          </textarea>
+
+          <div class="btn-group" id="actions">
+            <button class="btn btn-primary btn-tool current-action"> </button>
+          </div>
+
+          <div class="btn-group">
+            <a href="help.html" class="btn btn-info btn-tool" role="button">Get Help!</a>
+          </div>
+
+          <div class="button-toolbar current-toolbar" role="toolbar">
+          </div>
+
+          <button hidden type="button" class="btn btn-primary btn-tool" id="interpret"
+                  title="Interpret the entire example">
+            Interpret <i class="fas fa-play"></i>
+          </button>
+          <div id="errors" class="accordion" hidden>
+            <div class="card bg-primary">
+              <div class="card-header clearfix">
+                <h3>
+                  <button id="errors-button" type="button"
+                          class="btn btn-block text-left btn-example dropdown-toggle"
+                          data-toggle="collapse" data-target="#error-body"
+                          aria-expanded="true">
+                    Errors!
+                  </button>
+                </h3>
+              </div>
+
+              <div id="error-body" class="collapse show">
+                <div class="card-body">
+                  <ul id="error-list" class="example-list list-group">
+                    <!-- Any errors are reported here -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <div id="parameters" class="accordion">
+        </div>
+        <div id="examples" class="accordion">
+        </div>
+
+      </div>
+
+      <!-- The result of the compilation will be rendered inside this div -->
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8" id="right">
+        <h2>See the results</h2>
+        <div id="images">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module">
+   import {UIHandlers} from './js/handlers.js';
+   UIHandlers();
+  </script>
+</body>
+
+</html>

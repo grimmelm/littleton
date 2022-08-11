@@ -1,0 +1,16 @@
+title = "Basic tests"
+
+[[tests]]
+description = "Tests basic ownership."
+program = """
+B has child C.
+B has child D.
+B dies.
+O conveys to A for life, then to the grandchildren of B who graduate college.
+C has child E.
+C has child F.
+E graduates college.
+A dies.
+
+"""
+result = "Fee simple in O."

@@ -1,0 +1,300 @@
+title = "Possessory Estates"
+chapter = 2
+
+[[tests]]
+citation = "Page 9"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and his heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Page 9"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Page 11"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+
+[[tests]]
+citation = "Page 11"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of her body."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Page 12"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Page 13"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years."""
+expected = """
+(Seq'
+ (While' (Natural (ForYears 10)) ((Not (Occurs (YearsPass 10))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-4"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 2 years."""
+expected = """
+(Seq'
+ (While' (Natural (ForYears 2)) ((Not (Occurs (YearsPass 2))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-5"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-6"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-7"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for the life of B."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife B)) ((Not (Occurs (Dies B))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O)))) """
+
+[[tests]]
+citation = "Question 2-8"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A."""
+expected = " (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-9"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-10"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+A conveys Blackacre to B."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Seq' (Atom' ((grantor A) (grantee B))) (Atom' ((grantor A) (grantee A)))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-11"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body.
+A conveys Blackacre to B."""
+expected = """
+(Seq'
+ (Seq' (Atom' ((grantor A) (grantee B))) (Atom' ((grantor A) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-12"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years.\
+A conveys Blackacre to B."""
+expected = """
+(Seq'
+ (While' (Natural (ForYears 10)) ((Not (Occurs (YearsPass 10))) ())
+  (Seq' (Atom' ((grantor A) (grantee B))) (Atom' ((grantor A) (grantee A)))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-13"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life.\
+A conveys Blackacre to B for 2 years.\
+A dies."""
+expected = """
+(Atom' ((grantor O) (grantee O)))
+"""
+
+[[tests]]
+citation = "Question 2-14"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and his heirs.\
+A conveys Blackacre to B for 2 years.\
+A dies."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForYears 2)) ((Not (Occurs (YearsPass 2))) ((Dies A)))
+   (Atom' ((grantor A) (grantee B))))
+  (Atom' ((grantor A) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 2-15"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life.\
+A conveys Blackacre to B for 2 years.\
+8 years pass.\
+A dies."""
+sexp = """
+"""
+comment = "Does not correctly handle the passing of time."
+
+[[tests]]
+citation = "Question 2-16"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and the heirs of his body.\
+A dies."""
+expected = """
+(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 2-17"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+A dies."""
+expected = " (Atom' ((grantor O) (grantee O)))"
+
+[[tests]]
+citation = "Question 2-18"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-19"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-20"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for the life of B."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife B)) ((Not (Occurs (Dies B))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 2-21"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-22"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life.\
+A conveys Blackacre to B.\
+B dies."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ((Dies B)))
+  (Seq' (Atom' ((grantor A) (grantee B))) (Atom' ((grantor A) (grantee A)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 2-23"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 2 years."""
+expected = """
+(Seq'
+ (While' (Natural (ForYears 2)) ((Not (Occurs (YearsPass 2))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-24"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-25"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 2-26"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"
+
+[[tests]]
+citation = "Question 2-27"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for the life of B."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife B)) ((Not (Occurs (Dies B))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O)))) """
+
+[[tests]]
+citation = "Question 2-28"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A."""
+expected = "(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"

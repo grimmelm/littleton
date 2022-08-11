@@ -1,0 +1,22 @@
+
+title = "Term of Years"
+
+[[examples]]
+description = "Term of years"
+program = """
+To A for 10 years.
+5 years pass.
+5 years pass.
+"""
+result = "Fee simple in O."
+
+
+[[examples]]
+description = "Term of years is of lesser quantum than life estate"
+program = """
+O conveys to A for 10 years.
+A conveys to B for life.
+"""
+result = "Term of years determinable in B, remainder in term of years in A, reversion in fee simple in O."
+
+

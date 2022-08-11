@@ -1,0 +1,71 @@
+[
+  "Examples",
+  {
+    "title": "Wills and Intestacy",
+    "examples": [
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in fee simple in B.",
+        "program":
+          "O makes a will to A for life, then to B.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "O makes a will to A for life, then to B.\nO makes a will to C.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in P.",
+        "program": "O marries P.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program": "O has child A.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "O has child A.\nA has child B.\nA dies.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O's unknown heirs",
+        "program": "O dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in fee simple in P.",
+        "program":
+          "O marries P.\nO makes a will to A for life.\nO dies.\n"
+      },
+      {
+        "description": null,
+        "result": "D: 1/3, E: 1/6, F: 1/6, G: 1/3",
+        "program":
+          "A has child B.\nA has child C.\nA has child D.\nA dies.\nB has child E.\nB has child F.\nB dies.\nC has child G.\nC dies.\nTo the descendants of A per stirpes.\n"
+      },
+      {
+        "description": null,
+        "result": "D: 1/3, E: 2/9, F: 2/9, G: 2/9",
+        "program":
+          "A has child B.\nA has child C.\nA has child D.\nA dies.\nB has child E.\nB has child F.\nB dies.\nC has child G.\nC dies.\nTo the descendants of A by representation.\n"
+      },
+      {
+        "description": null,
+        "result": "D: 1/4, E: 1/4, F: 1/4, G: 1/4",
+        "program":
+          "A has child B.\nA has child C.\nA has child D.\nA dies.\nB has child E.\nB has child F.\nB dies.\nC has child G.\nC dies.\nTo the descendants of A per capita.\n"
+      },
+      {
+        "description": null,
+        "result": "E has a fee simple.",
+        "program":
+          "A has child B.\nA has child C.\nA has child D.\nA dies.\nB has child E.\nB has child F.\nB dies.\nC has child G.\nC dies.\nTo the descendants of A by primogeniture.\n"
+      }
+    ]
+  }
+]

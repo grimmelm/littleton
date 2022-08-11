@@ -1,0 +1,45 @@
+title = "Determinable Interests"
+
+[[examples]]
+description = "Fee simple determinable with 'so long as'"
+program = """
+To A so long as A is unmarried.
+"""
+result = "Fee simple determinable in A, possibility of reverter O."
+
+[[examples]]
+description = "Fee simple determinable with 'until'"
+program = """
+To A until A is married.
+"""
+result = "Fee simple determinable in A, possibility of reverter in O."
+
+[[examples]]
+description = "Fee simple determinable ends on occurrence of event"
+program = """
+To A so long as the property is not used for commercial purposes.
+The property is used for commercial purposes.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Life estate determinable"
+program = """
+To A for life so long as A does not drink alcohol.
+"""
+result = "Life estate determinable in A, reversion in O."
+
+
+[[examples]]
+description = "Life estate determinable followed by remainder"
+program = """
+To A for life so long as A does not drink alcohol, then to B.
+"""
+result = "Life estate determinable in A, remainder in B."
+
+[[examples]]
+description = "Determinable future interest"
+program = """
+To A for life, then to B and her heirs until Mars becomes a state.
+"""
+result = "Life estate in A, remainder in fee simple determinable in B, possibility of reverter in O."

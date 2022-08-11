@@ -1,0 +1,21 @@
+[
+  "Examples",
+  {
+    "title": "Term of Years",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To A for 10 years.\n5 years pass.\n5 years pass.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Term of years determinable in B, remainder in term of years in A, reversion in fee simple in O.",
+        "program":
+          "O conveys to A for 10 years.\nA conveys to B for life.\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,91 @@
+[
+  "Examples",
+  {
+    "title": "Life Estates, Reversions, and Remainders",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program": "To A for life, then to B.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program": "To A for life.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A's heirs.",
+        "program": "To A, then to B.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "To A for life, then to B for life, then to C.\nA dies.\nB dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "To A for life, then to B for life, then to C.\nB dies.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainders in life estate in B through F, remainder in fee simple in G.",
+        "program":
+          "To A for life, then to B for life, then to C for life, then to D for life, then to E for life, then to F for life, then to G.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in fee simple in B.",
+        "program": "To A while A is alive, then to B.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program": "To A.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "To A for the life of B, then to C.\nA dies.\nB dies.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in C for the life of A, remainder in fee simple in B.",
+        "program":
+          "O conveys to A for life, then to B.\nA conveys to C.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in C for the life of A and C, reversion in life estate in A, remainder in fee simple in B.",
+        "program":
+          "O conveys to A for life, then to B.\nA conveys to C for life.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainder in life estate in D, remainder in fee simple in B.",
+        "program":
+          "O conveys to A for life, then to B.\nB conveys to D for life.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, reversion in B.",
+        "program":
+          "O conveys to A for life.\nO conveys to B.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in O.",
+        "program":
+          "O conveys to A for life, then to B.\nB conveys to O.\n"
+      }
+    ]
+  }
+]

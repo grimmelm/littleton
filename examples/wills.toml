@@ -1,0 +1,124 @@
+title = "Wills and Intestacy"
+
+[[examples]]
+description = "Wills transfer property on death"
+program = """
+O makes a will to A for life, then to B.
+O dies.
+"""
+result = "Life estate in A, remainder in fee simple in B."
+
+[[examples]]
+description = "Wills can be revoked by subsequent wills"
+program = """
+O makes a will to A for life, then to B.
+O makes a will to C.
+O dies.
+"""
+result = "Fee simple in C."
+
+[[examples]]
+description = "Intestacy priority 1: surviving spouse"
+program = """
+O marries P.
+O dies.
+"""
+result = "Fee simple in P."
+
+[[examples]]
+description = "Intestacy priority 2(a): surviving children"
+program = """
+O has child A.
+O dies.
+"""
+result = "Fee simple in A."
+
+[[examples]]
+description = "Intestacy priority 2(b): surviving descendants"
+program = """
+O has child A.
+A has child B.
+A dies.
+O dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "No surviving relatives"
+program = """
+O dies.
+"""
+result = "Fee simple in O's unknown heirs"
+
+[[examples]]
+description = "Partial intestacy"
+program = """
+O marries P.
+O makes a will to A for life.
+O dies.
+"""
+result = "Life estate in A, remainder in fee simple in P."
+
+[[examples]]
+description = "Descent per stirpes"
+program = """
+A has child B.
+A has child C.
+A has child D.
+A dies.
+B has child E.
+B has child F.
+B dies.
+C has child G.
+C dies.
+To the descendants of A per stirpes.
+"""
+result = "D: 1/3, E: 1/6, F: 1/6, G: 1/3"
+
+[[examples]]
+description = "Descent by representation"
+program = """
+A has child B.
+A has child C.
+A has child D.
+A dies.
+B has child E.
+B has child F.
+B dies.
+C has child G.
+C dies.
+To the descendants of A by representation.
+"""
+result = "D: 1/3, E: 2/9, F: 2/9, G: 2/9"
+
+[[examples]]
+description = "Descent per capita"
+program = """
+A has child B.
+A has child C.
+A has child D.
+A dies.
+B has child E.
+B has child F.
+B dies.
+C has child G.
+C dies.
+To the descendants of A per capita.
+"""
+result = "D: 1/4, E: 1/4, F: 1/4, G: 1/4"
+
+[[examples]]
+description = "Descent by primogeniture"
+program = """
+A has child B.
+A has child C.
+A has child D.
+A dies.
+B has child E.
+B has child F.
+B dies.
+C has child G.
+C dies.
+To the descendants of A by primogeniture.
+"""
+result = "E has a fee simple."

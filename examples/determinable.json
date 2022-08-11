@@ -1,0 +1,44 @@
+[
+  "Examples",
+  {
+    "title": "Determinable Interests",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple determinable in A, possibility of reverter O.",
+        "program": "To A so long as A is unmarried.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple determinable in A, possibility of reverter in O.",
+        "program": "To A until A is married.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To A so long as the property is not used for commercial purposes.\nThe property is used for commercial purposes.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate determinable in A, reversion in O.",
+        "program":
+          "To A for life so long as A does not drink alcohol.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate determinable in A, remainder in B.",
+        "program":
+          "To A for life so long as A does not drink alcohol, then to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainder in fee simple determinable in B, possibility of reverter in O.",
+        "program":
+          "To A for life, then to B and her heirs until Mars becomes a state.\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,56 @@
+title = "Conditions Precedent"
+
+[[examples]]
+description = "Remainder with condition precedent"
+program = """
+To A for life, then if B survives A to B and her heirs.
+"""
+result = "Life estate in A, contingent remainder in fee simple in B, possibility of reverter in fee simple in O."
+
+[[examples]]
+description = "Alternative contingent remainders"
+program = """
+To A for life, then if B survives A to B and her heirs, otherwise to C and his heirs.
+"""
+result = "Life estate in A, contingent remainder in fee simple in B, contingent remainder in fee simple in C."
+
+[[examples]]
+description = "Condition precedent with narrow scope"
+program = """
+To A for life, then if B is married to B for life, then to C.
+"""
+result = "Life estate in A, contingent remainder in life estate in B, vested remainder in fee simple in C."
+
+[[examples]]
+description = "Condition precedent with broad scope"
+program = """
+To A for life, then if B is married (to B for life, then to C).
+"""
+result = "Life estate in A, contingent remainder in life estate in B, contingent remainder in fee simple in C, possibility of reverter in O"
+
+[[examples]]
+description = "Condition precedent satisfied before taking possession"
+program = """
+To A for life, then if B has eaten chocolate to B.
+B eats chocolate.
+A dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Condition precedent fails before taking possession"
+program = """
+To A for life, then if B has eaten chocolate to B.
+B dies.
+A dies.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Condition precedent with/without DCR"
+program = """
+To A for life, then if and when B is married to B for 10 years, then to C.
+A dies.
+"""
+result = "Fee simple subject to executory limitation in O, springing executory interest in term of years in B, springing executory interest in fee simple in C."
+

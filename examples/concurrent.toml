@@ -1,0 +1,120 @@
+title = "Concurrent Interests"
+
+[[examples]]
+description = "Tenancy in common"
+program = """
+To A and B as tenants in common.
+"""
+result = "A and B have 1/2 shares as tenants in common"
+
+[[examples]]
+description = "Tenancy in common with more than two owners"
+program = """
+To A and B and C and D as tenants in common.
+"""
+result = "A, B, C, and D have 1/4 shares as tenants in common"
+
+[[examples]]
+description = "A tenancy in common can be freely conveyed"
+program = """
+O conveys to A and B as tenants in common.
+A conveys to C.
+B conveys to D for life.
+"""
+result = "C has a 1/2 share, and a 1/2 share is divided into a life estate in D and a remainder in B."
+
+[[examples]]
+description = "A tenancy in common is eliminated by common ownership"
+program = """
+O conveys to A and B as tenants in common.
+A conveys to B.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "A tenancy in common can be subdivided and recombined"
+program = """
+O conveys to A and B as tenants in common.
+A conveys to C and D as tenants in common.
+C conveys to B.
+"""
+result = "3/4 share in B, 1/4 share in D"
+
+[[examples]]
+description = "Present and future interests can be created as tenancies in common"
+program = """
+O conveys to A and B as tenants in common for the life of A, then to C and D as tenants in common.
+"""
+result = "A and B share a life estate for the life of A; C and D share a remainder in fee simple."
+
+[[examples]]
+description = "Joint tenancy"
+program = """
+O conveys to A and B as joint tenants.
+"""
+result = "A and B are joint tenants in fee simple."
+
+[[examples]]
+description = "Joint tenancy passes automatically on death"
+program = """
+O conveys to A and B as joint tenants.
+A dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Joint tenancy is severed by a conveyance"
+program = """
+O conveys to A and B as joint tenants.
+A conveys to C.
+"""
+result = "B and C are tenants in common."
+
+[[examples]]
+description = "Joint tenancy is severed only as to the conveyed interest"
+program = """
+O conveys to A and B and C as joint tenants.
+A conveys to D.
+"""
+result = "B and C are joint tenants with each other, and tenants in common with respect to D."
+
+[[examples]]
+description = "Modern default is a tenancy in common"
+program = """
+O conveys to A and B.
+"""
+result = "A and B are tenants in common."
+
+
+[[examples]]
+description = "Tenancy by the entireties"
+program = """
+A marries B.
+O conveys to A and B as tenants by the entireties.
+"""
+result = "A and B are tenants by the entireties."
+
+[[examples]]
+description = "Tenancy by the entireties passes automatically on death, like a joint tenancy"
+program = """
+A marries B.
+O conveys to A and B as tenants by the entireties.
+A dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Tenancy by the entireties is unconveyable"
+program = """
+A marries B.
+O conveys to A and B as tenants by the entireties.
+A conveys to C.
+"""
+result = "A and B are tenants by the entireties."
+
+[[examples]]
+description = "Tenancy by the entireties can only be created in a married couple"
+program = """
+O conveys to A and B as tenants by the entireties.
+"""
+result = "A and B are joint tenants."

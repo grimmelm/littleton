@@ -1,0 +1,50 @@
+
+title = "Fee Tail"
+
+[[examples]]
+description = "Fee tail passes lineally"
+program = """
+To A and the heirs of his body, then to P.
+A has child B.
+A dies.
+B has child C.
+B dies.
+C dies.
+"""
+result = "Fee simple in P."
+
+
+[[examples]]
+description = "Fee tail can ascend to reach other descendants of the original grantee"
+program = """
+To A and the heirs of her body, then to P.
+A has child B.
+A has child C.
+A dies.
+B has child D.
+B dies.
+D dies.
+"""
+result = "Fee tail in C (limited to A's descendants), remainder in fee simple in P."
+
+
+
+[[examples]]
+description = "Present holder can convey only an interest limited to their life"
+program = """
+To A and the heirs of her body, then to P.
+A has child B.
+A conveys to C for life.
+A dies.
+"""
+result = "Fee tail in B (limited to A's descendants), remainder in fee simple in P."
+
+
+[[examples]]
+description = "Disentailment by conveyance of a fee simple"
+program = """
+To A and the heirs of her body, then to P.
+A has child B.
+A conveys to C.
+"""
+result = "Fee simple in C."

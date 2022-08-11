@@ -1,0 +1,45 @@
+[
+  "Examples",
+  {
+    "title": "Miscellaneous Doctrines",
+    "examples": [
+      {
+        "description": null,
+        "result": "Life estate in A, reversion in fee simple in O.",
+        "program":
+          "To A for life, then to the heirs of O.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainder in life estate in B, vested remainder in fee simple in A.",
+        "program":
+          "To A for life, then to B for life, then to the heirs of A.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program":
+          "To A for life, then to A and their heirs.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program":
+          "To A for life, then if B is married to B for life, then to A and their heirs.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program":
+          "To O for life, then to the heirs of O.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program":
+          "To A for life, then to the heirs of A.\n"
+      }
+    ]
+  }
+]

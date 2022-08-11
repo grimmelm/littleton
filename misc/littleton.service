@@ -1,0 +1,18 @@
+[Unit]
+Description=The Littleton Web Interface
+Wants=nginx
+
+[Service]
+Type=simple
+WorkingDirectory=<path to source repo>/_build/website/
+ExecStart=<path to source repo>/_build/website/littleton server 8000
+Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=littleton
+User=littleton
+Group=littleton
+
+[Install]
+WantedBy=multi-user.target

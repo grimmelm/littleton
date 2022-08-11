@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Littleton: A Future Interests Interpreter</title>
+
+    <!-- Fonts -->
+    <link href="css/charter.css" rel="stylesheet">
+    <link href="css/merriweather-sans.css" rel="stylesheet">
+    <link href="css/fira_code.css" rel="stylesheet">
+    <link href="css/awesome.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+
+    <!-- Dependencies -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme for the site -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- JavaScript Dependencies -->
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-static-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-header">
+          <h1 class="navbar-brand"><a href="/">Littleton: A Future Interests Interpreter</a></h1>
+        </div>
+
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#nav-links"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-links">
+          <ul class="navbar-nav nav nav-pills ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interpreter.html">Interpreter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="help.html">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="textbook.html">Textbook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" id="content">
+      <div class="row">
+        <div class="col-9">
+        <section id="abstract">
+          <p>
+            Anglo-American property law allows for ownership to be divided among multiple owners
+            over time. The law of <em>future interests</em> and <em>conveyances</em> that create 
+            them are notoriously complicated. They follow rigid syntactic conventions and are 
+            governed by an intricate body of interlocking doctrines that determine their legal 
+            effect. These doctrines have been codified, but only in informal and ambiguous ways.
+          </p>
+          <p>
+            Littleton is an interpreter that automatically parses conveyances and displays the
+            resulting state of title. It covers most of the kinds of interests covered in a 
+            typical first-year Property course, can evaluate the consequences of events, 
+            apply doctrines like vesting, and solve basic Rule Against Perpetuities problems.
+          </p>
+        </section>
+        </div>
+        <div class="col-3">  <img class="img-fluid" src="images/littleton.jpg"></div>
+        
+        <hr/>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <h2>Papers, Presentations, and Source Code</h2>
+          
+          <section class="paper" id="yjolt2022">
+             <h3 class="paper-title">
+               A Programming Language for Future Interests
+               <a href="/pdfs/yjolt-paper.pdf" alt="Paper" title="Paper"><i class="fas fa-file-pdf"></i></a>
+             </h3>
+             <p class="venue">24 Yale Journal of Law and Technology 75 (2022)</p>
+           </section>
+          
+          
+           <section class="paper" id="onward2019">
+             <h3 class="paper-title">
+               Property Conveyances as a Programming Language
+               <a href="/pdfs/onward-paper.pdf" alt="Paper" title="Paper"><i class="fas fa-file-pdf"></i></a>
+               <a href="/pdfs/onward-presentation.pdf" alt="Presentation" title="Presentation"><i class="fas fa-tv"></i></a>
+             </h3>
+             <p class="venue">SPLASH Onward! 2019</p>
+           </section>
+
+           <section class="paper" id="dsdli2017">
+             <h3 class="paper-title">
+               Property Law as a Programming Language
+               <a href="/pdfs/dsldi-paper.pdf" alt="Paper" title="Paper"><i class="fas fa-file-pdf"></i></a>
+               <a href="/pdfs/dsldi-presentation.pdf" alt="Presentation" title="Presentation"><i class="fas fa-tv"></i></a>
+             </h3>
+             <p class="venue">SPLASH DSLDI 2017</p>
+           </section>
+           
+            <section class="paper" id="sourcecode">
+             <h3 class="paper-title">
+               Littleton Source Code
+               <a href="https://github.com/grimmelm/littleton" alt="Source Code" title="Source Code"><i class="fas fa-file-code"></i></a>
+             </h3>
+             <p class="venue">Available under the <a href="https://opensource.org/licenses/MIT">MIT License</a></p>
+           </section>
+           
+        </div>
+
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+           <h2>See Littleton in Action</h2>
+           <form action="interpreter.html" id="entry_form">
+             <textarea class="form-control" rows="10" id="entry_text">
+To A for life, then to B and her heirs.
+A dies.
+             </textarea>
+             <button type="submit" class="btn btn-danger" id="try_it">Try It!</button>
+           </form>
+
+         </div>
+      </div>
+    </div>
+
+    <script type="module">
+       import {tryHandler} from './js/handlers.js';
+       tryHandler();
+    </script>
+  </body>
+</html>

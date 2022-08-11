@@ -1,0 +1,106 @@
+title = "Shifting and Springing Executory Interests"
+chapter = 8
+
+[[tests]]
+citation = "Page 97"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, but if A ceases using the land for a church, then to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 99"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, provided that if A ever allows the timber to be cut, then to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 100"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A when she turns 21."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 101"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B 5 years after A's death."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-3"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A; however, if B obtains her Ph.D., then to B and her heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-5"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A when A reaches 30."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-7"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, on condition that B never uses illegal drugs, and if B uses illegal drugs, then his interest will cease and be replaced by an estate to C and her heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-8"
+program = """
+T owns Blackacre.\
+T conveys Blackacre to A for life, then to B, but if B should ever use the property as a rental, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-9"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 2 years, then to B if B clears the property of all the garbage A leaves behind."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-10"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B and her heirs if B probates A's estate."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-11"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then one day later, to C and his heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-13"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, provided that B never allows a meeting of the Green Party to occur on the property."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 8-14"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B delivers a eulogy at A's funeral."""
+sexp = """
+"""

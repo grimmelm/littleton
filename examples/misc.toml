@@ -1,0 +1,43 @@
+title = "Miscellaneous Doctrines"
+
+[[examples]]
+description = "Doctrine of worthier title"
+program = """
+To A for life, then to the heirs of O.
+"""
+result = "Life estate in A, reversion in fee simple in O."
+
+[[examples]]
+description = "Rule in Shelley's Case"
+program = """
+To A for life, then to B for life, then to the heirs of A.
+"""
+result = "Life estate in A, remainder in life estate in B, vested remainder in fee simple in A."
+
+[[examples]]
+description = "Merger"
+program = """
+To A for life, then to A and their heirs.
+"""
+result = "Fee simple in A."
+
+[[examples]]
+description = "Merger eliminating an intervening contingent remainder"
+program = """
+To A for life, then if B is married to B for life, then to A and their heirs.
+"""
+result = "Fee simple in A."
+
+[[examples]]
+description = "Doctrine of worthier title plus merger"
+program = """
+To O for life, then to the heirs of O.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Rule in Shelley's Case plus merger"
+program = """
+To A for life, then to the heirs of A.
+"""
+result = "Fee simple in A."

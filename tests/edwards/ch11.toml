@@ -1,0 +1,308 @@
+title = "Post-Conveyance Factual Developments"
+chapter = 11
+
+[[tests]]
+citation = "Page 114"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 114"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 114"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C.\
+B dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 115"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 115"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C.\
+C dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 115"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs, but if A divorces, then to B and his heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 115"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C.\
+A divorces."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 115"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 116"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, but if A ever uses the land for a tavern, then to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 116"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, but if A ever uses the land for a tavern, then to B.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 116"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, but if the land is ever used for a tavern, then to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 118"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 119"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 119"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 119"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 119"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, but if B ever divorces, then to C.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B.
+A conveys Blackacre to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B.
+B conveys Blackacre to A."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, then to C.
+A conveys Blackacre to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life if B has reached 21, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 121"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life if B has reached 21, then to C.\
+A conveys Blackacre to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 122"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B reaches 35."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 122"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B reaches 35.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 122"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B reaches 35.\
+B reaches 35.\
+A dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-6"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C.\
+C conveys Blackacre to A."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-7"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B is then married, otherwise to C.\
+C conveys Blackacre to A."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-8"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B for life if B is then married, then to A."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-10"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B for life, then back to O.\
+O conveys Blackacre to C.\
+C conveys Blackacre to B."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-12"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B.\
+B dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-13"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B and his heirs, but if B ever allows strip mining on the property, then to C and her heirs.\
+B dies."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-14"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B gets married.\
+A conveys Blackacre to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-16"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 2 years, then to B; however, if B ever uses illegal drugs, then to C.\
+2 years pass."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-17"
+program = """
+G owns Blackacre.\
+G conveys Blackacre to O and the heirs of his body.\
+O conveys Blackacre to A.\
+A conveys Blackacre to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 11-19"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B gets divorced, B's interest ends.\
+A conveys Blackacre to O."""
+sexp = """
+"""

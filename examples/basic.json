@@ -1,0 +1,79 @@
+[
+  "Examples",
+  {
+    "title": "Basic Examples",
+    "examples": [
+      {
+        "description": null,
+        "result": "Life estate in A, reversion in C.",
+        "program":
+          "O conveys Blackacre to A for life.\nO conveys Blackacre to C.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in C, reversion in O.",
+        "program":
+          "O conveys Blackacre to A for life.\nA conveys Blackacre to C.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in C, remainder in life estate in D, remainder in fee simple in D.",
+        "program":
+          "O conveys Blackacre to A for life, then to B for life.\nA conveys Blackacre to C for life, then to D.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainder in life estate in C, remainder in fee simple in D.",
+        "program":
+          "O conveys Blackacre to A for life, then to B.\nB conveys Blackacre to C for life, then to D.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in in C.",
+        "program":
+          "O conveys Blackacre to A for life, then to B.\nB conveys Blackacre to C.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in C, remainder in in B.",
+        "program":
+          "O conveys Blackacre to A for life, then to B.\nA conveys Blackacre to C.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, remainder in in B.",
+        "program":
+          "O conveys Blackacre to A for life, then to B.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, reversion in O.",
+        "program": "O conveys Blackacre to A for life.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "O conveys Blackacre to A.\nO conveys Blackacre to B.\nA conveys Blackacre to C.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "O conveys Blackacre to A.\nA conveys Blackacre to B.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in A.",
+        "program": "O conveys Blackacre to A.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O.",
+        "program": ""
+      }
+    ]
+  }
+]

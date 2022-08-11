@@ -1,0 +1,49 @@
+[
+  "Examples",
+  {
+    "title": "Rule Against Perpetuities",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple in A",
+        "program": "To A, but if Mars becomes a state to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple subject to executory limitation in A, executory interest in fee simple in B.",
+        "program": "To A, but if B marries to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple determinable in in A, possibility of reverter in fee simple in O.",
+        "program": "To A so long as Mars does not become a state.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in fee simple in B, possibility of reverter in fee simple in O.",
+        "program": "To A for life, then if Mars has become a state to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in the children of B, possibility of reverter in fee simple in O.",
+        "program": "To A for life, then to the children of B.\n"
+      },
+      {
+        "description": null,
+        "result": "Life estate in A, reversion in fee simple O.",
+        "program": "To A for life, then to the grandchildren of B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, contingent remainder in the grandchildren of B, possibility of reverter in fee simple in O.",
+        "program":
+          "B has child C.\nB dies.\nTo A for life, then to the grandchildren of B.\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,124 @@
+title = "Review of Future Interests in a Second Grantee and the Estates They Follow"
+chapter = 8
+
+[[tests]]
+citation = "Page 105"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B has reached 30, but if B has not reached 30, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 105"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B has not reached 30, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 105"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B ceases using the land for a firm, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-1"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B and his heirs, then to C and his heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-3"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs as long as the land is used for educational purposes."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-4"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B, but if B has not yet graduated from law school, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-5"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs as long as the land is used for educational purposes, but if the land is not used for educational purposes, then to B and his heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-6"
+program = """
+T owns Blackacre.\
+T conveys Blackacre to A for 5 years, then to B, but if, after taking possession, B ever fails to place a red rose on T's grave on T's birthday, then to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-7"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs, but if she stops using the land for educational purposes, then to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-8"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A if she graduates from law school."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-11"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B ever allows A to be moved into a nursing home, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-12"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B and her heirs.\
+A conveys Blackacre to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-14"
+program = """
+O owns Blackacre.\
+B marries C.\
+O conveys Blackacre to A for life, then to B if B is then married to C,"""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-15"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B does not serve as the executor of A's estate, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 9-17"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A, but if A mines the property, then to B and her heirs."""
+sexp = """
+"""

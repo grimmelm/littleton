@@ -1,0 +1,76 @@
+[
+  "Examples",
+  {
+    "title": "Executory Interests and Conditions Subsequent",
+    "examples": [
+      {
+        "description": null,
+        "result":
+          "Fee simple with executory limitation in A, executory interest in fee simple in B.",
+        "program":
+          "To A so long as B has not graduated from college, then to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple subject to executory limitation in A, executory interest in fee simple in B.",
+        "program":
+          "To A, but if B graduates from college to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple subject to executory limitation in A, power of termination in fee simple in O.",
+        "program":
+          "To A, but if B graduates from college the grantor may reenter.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in B.",
+        "program":
+          "To A, but if B graduates from college to B.\nB graduates college.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in O",
+        "program":
+          "To A, but if B graduates from college, the grantor may reenter.\nB graduates college.\nO reenters.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate subject to executory limitation in A, reversion in fee simple subject to executory limitation in O, executory interest in fee simple in B.",
+        "program":
+          "To A for life, but if B marries to B.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate subject to executory limitation in A, remainder in fee simple subject to executory limitation in B, executory interest in fee simple in C.",
+        "program":
+          "(To A for life, then to B), but if C marries to C.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Life estate in A, remainder in fee simple subject to executory limitation in B, executory interest in fee simple in C.",
+        "program":
+          "To A for life, then (to B, but if C marries to C).\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple in A, executory interest in life estate in B, possibility of reverter in O.",
+        "program":
+          "To A, but if B marries to B for life.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee simple in A, reversion subject to executory interest in O, (springing) executory interest in B.",
+        "program":
+          "To A for life, then after 5 years pass to B.\n"
+      }
+    ]
+  }
+]

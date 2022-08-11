@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name conveyances)
+ (libraries conveyances core cohttp cohttp-async toml)
+ (preprocess (pps ppx_jane)))

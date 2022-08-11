@@ -1,0 +1,7 @@
+(executable
+ (public_name site)
+ (name site)
+ (libraries js_of_ocaml conveyances)
+ (js_of_ocaml (flags +dynlink.js +toplevel.js ))
+ (preprocess (pps ppx_jane -allow-unannotated-ignores js_of_ocaml-ppx))
+)

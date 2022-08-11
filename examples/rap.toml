@@ -1,0 +1,56 @@
+title = "Rule Against Perpetuities"
+
+[[examples]]
+description = "Remote vesting interest fails, leaving a fee simple"
+program = """
+To A, but if Mars becomes a state to B.
+"""
+result = "Fee simple in A"
+
+[[examples]]
+description = "Measuring life limits when an interest can vest"
+program = """
+To A, but if B marries to B.
+"""
+result = "Fee simple subject to executory limitation in A, executory interest in fee simple in B."
+
+[[examples]]
+description = "Remote-vesting interest fails, leaving an interest in the grantor"
+program = """
+To A so long as Mars does not become a state.
+"""
+result = "Fee simple determinable in in A, possibility of reverter in fee simple in O."
+
+
+[[examples]]
+description = "Measuring life forces timely evaluation of a remote condition"
+program = """
+To A for life, then if Mars has become a state to B.
+"""
+result = "Life estate in A, contingent remainder in fee simple in B, possibility of reverter in fee simple in O."
+
+
+[[examples]]
+description = "Gift to the children of a living person is good."
+program = """
+To A for life, then to the children of B.
+"""
+result = "Life estate in A, contingent remainder in the children of B, possibility of reverter in fee simple in O."
+
+
+[[examples]]
+description = "Gift to the grandchildren of a living person fails."
+program = """
+To A for life, then to the grandchildren of B.
+"""
+result = "Life estate in A, reversion in fee simple O."
+
+
+[[examples]]
+description = "Gift to the grandchildren of a deceased person is good."
+program = """
+B has child C.
+B dies.
+To A for life, then to the grandchildren of B.
+"""
+result = "Life estate in A, contingent remainder in the grandchildren of B, possibility of reverter in fee simple in O."

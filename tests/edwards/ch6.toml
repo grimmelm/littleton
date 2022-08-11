@@ -1,0 +1,434 @@
+title = "Estates Followed by Executory Interests"
+chapter = 6
+
+[[tests]]
+citation = "Page 71"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs until B marries."""
+expected = """
+(Seq'
+ (While' Added ((Not (Occurs (Marry B ()))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 72"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs until B marries, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added ((Not (Occurs (Marry B ()))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 73"
+program = """
+O owns Blackacre.
+(A serves in the United States armed forces).
+O conveys Blackacre to A while (A serves in the United States armed forces), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added
+   ((Occurs (Generic "A serves in the United States armed forces"))
+    ((Generic "A serves in the United States armed forces")))
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 74"
+program = """
+O owns Blackacre.
+(A serves in the United States armed forces).
+O conveys Blackacre to A while (A serves in the United States armed forces), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added
+   ((Occurs (Generic "A serves in the United States armed forces"))
+    ((Generic "A serves in the United States armed forces")))
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 75"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs; however if B marries, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Marry B ()))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 77"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A; however, if (A uses the land for a tavern), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "A uses the land for a tavern"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 77"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A; however, if (A uses the land for a tavern), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "A uses the land for a tavern"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 78"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs, but if A divorces, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Divorce A ()))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 79"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life; but if A divorces, then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Divorce A ()))) ())
+   (Seq'
+    (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+     (Atom' ((grantor O) (grantee A))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 79"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life or until A divorces, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Combined (ForLife A))
+   ((And (Not (Occurs (Divorce A ()))) (Not (Occurs (Dies A)))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 79"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B, but if (B ever drills for oil on the property), then to C."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B ever drills for oil on the property"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee C))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-11"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and his heirs, but if (A does not graduate from college), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "A does not graduate from college"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-12"
+program = """
+O owns Blackacre.
+(being used as a farm).
+O conveys Blackacre to A while (being used as a farm)."""
+expected = """
+(Seq'
+ (While' Added
+  ((Occurs (Generic "being used as a farm"))
+   ((Generic "being used as a farm")))
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Requires a positive condition"
+
+[[tests]]
+citation = "Question 6-13"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs until (no longer used for a church), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added ((Not (Occurs (Generic "no longer used for a church"))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-14"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-15"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs; however, if (used for a pool hall), then to B and his heirs."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "used for a pool hall"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-16"
+program = """
+O owns Blackacre.
+(the land is always farmed).
+O conveys Blackacre to A and her heirs provided (the land is always farmed)."""
+expected = """
+(Seq'
+ (While' Added
+  ((Occurs (Generic "the land is always farmed"))
+   ((Generic "the land is always farmed")))
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Requires a positive condition"
+
+[[tests]]
+citation = "Question 6-17"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A, on condition that (the land is always used as a church), but if not, then to B."""
+expected = """
+"""
+comment = "Complicated condition"
+
+[[tests]]
+citation = "Question 6-18"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of his body."""
+expected = """
+(Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-19"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for the life of B."""
+expected = """
+(Seq'
+ (While' (Natural (ForLife B)) ((Not (Occurs (Dies B))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-20"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A, but if (A cuts timber on the property), then to B and her heirs."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "A cuts timber on the property"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-21"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life; however, if (A rents the property), then to B and his heirs."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "A rents the property"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-22"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for 25 years if A so long live."""
+expected = """
+"""
+comment = "Do not parse `so long live`"
+
+[[tests]]
+citation = "Question 6-23"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for 49 years or until the land lies fallow, whichever is first, then to B."""
+expected = """
+"""
+comment = "Complicated condition"
+
+[[tests]]
+citation = "Question 6-24"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Question 6-25"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs until (B reaches 25), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added ((Not (Occurs (Generic "B reaches 25"))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-26"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs; however, if (B reaches 25), then to B."""
+expected = """(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B reaches 25"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-27"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life or until (B reaches 25), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Combined (ForLife A))
+   ((And (Not (Occurs (Generic "B reaches 25"))) (Not (Occurs (Dies A)))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 6-28"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs on condition that (A does not use the property for a tavern), but if (A uses the property for a tavern), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "A uses the property for a tavern"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Syntax smoothing: removed comma before `on condition`. Bug: A's interest gets dropped?"
+
+[[tests]]
+citation = "Question 6-29"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A provided that (the city does not change the property's zoning classification), otherwise to B."""
+expected = """
+"""
+comment = "Syntax smoothing: removed comma before `provided that`. Unsupported syntax: `otherwise`."
+
+[[tests]]
+citation = "Question 6-30"
+program = """
+O owns Blackacre.
+(A is attending State University).
+O conveys Blackacre to A while (A is attending State University), then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Added
+   ((Occurs (Generic "A is attending State University"))
+    ((Generic "A is attending State University")))
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Positive condition required."

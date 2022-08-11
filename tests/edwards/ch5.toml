@@ -1,0 +1,599 @@
+title = "Estates Followed by Remainders"
+chapter = 5
+
+[[tests]]
+citation = "Page 51"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))"""
+
+[[tests]]
+citation = "Page 53"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 56"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has reached 25 years old)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has reached 25 years old")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 57"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to Jackie."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee Jackie))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 59"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has reached 21)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has reached 21")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 60"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B survives A)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B survives A")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 60"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B, but if (B does not survive A), then to C."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "B does not survive A"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee C))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 63"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has graduated from college), otherwise to O.""
+expected = """
+comment = "Unsupported syntax: `otherwise`."
+
+[[tests]]
+citation = "Page 63"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has graduated from college)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has graduated from college")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Page 64"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has graduated from college), but if (B has not graduated from college), then to C."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B has not graduated from college"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (If' ((Occurs (Generic "B has graduated from college")) ())
+      (Atom' ((grantor O) (grantee B)))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee C))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-18"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-25"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has refrained from drinking alcoholic beverages for the five years prior to As death)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If'
+   ((Occurs
+     (Generic
+      "B has refrained from drinking alcoholic beverages for the five years prior to As death"))
+    ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-26"
+program = """
+O owns Blackacre.
+(B turns 21).
+O conveys Blackacre to A for life, then to B if (B has reached 21)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ((Generic "B turns 21")))
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has reached 21")) ((Generic "B turns 21")))
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-27"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B; however, if (B ever drills for oil on the land), then to C."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B ever drills for oil on the land"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee C))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-28"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B on condition that (B has passed the bar)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has passed the bar")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Condition precedent is evaluated prematurely."
+
+[[tests]]
+citation = "Question 5-29"
+program = """
+O owns Blackacre.
+(B passes the bar).
+O conveys Blackacre to A for life, then to B on condition that (B has passed the bar)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B has passed the bar")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Condition precedent is evaluated prematurely"
+
+[[tests]]
+citation = "Question 5-30"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B, but if (B uses the land for an insurance agency), then back to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B uses the land for an insurance agency"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-31"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B does not then own an insurance agency)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B does not then own an insurance agency")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-32"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B is then married)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Generic "B is then married")) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-33"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B; however, if (B divorces after A dies), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "B divorces after A dies"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Complicated condition."
+
+[[tests]]
+citation = "Question 5-41"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-42"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-43"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs until (B reaches 25)."""
+expected = """
+(Seq'
+ (While' Added ((Not (Occurs (Generic "B reaches 25"))) ())
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-44"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs, but if A divorces, then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Divorce A ()))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-45"
+program = """
+O owns Blackacre.
+(A never uses illegal drugs).
+O conveys Blackacre to A and her heirs so long as (A never uses illegal drugs)."""
+expected = """
+(Seq'
+ (While' Added
+  ((Occurs (Generic "A never uses illegal drugs"))
+   ((Generic "A never uses illegal drugs")))
+  (Atom' ((grantor O) (grantee A))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-46"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and her heirs, but if (B reaches 25), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory ((Not (Occurs (Generic "B reaches 25"))) ())
+   (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-47"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, but if (an interstate highway is built within one mile of the property), then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not
+     (Occurs
+      (Generic
+       "an interstate highway is built within one mile of the property")))
+    ())
+   (Seq'
+    (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+     (Atom' ((grantor O) (grantee A))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-48"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life or until A divorces, then to O."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Combined (ForLife A))
+   ((And (Not (Occurs (Divorce A ()))) (Not (Occurs (Dies A)))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee O))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-49"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B, but if (B has not graduated from college), then to C."""
+expected = """
+(Seq'
+ (Seq'
+  (While' Executory
+   ((Not (Occurs (Generic "B has not graduated from college"))) ())
+   (Seq'
+    (Seq'
+     (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+      (Atom' ((grantor O) (grantee A))))
+     (Atom' ((grantor O) (grantee B))))
+    (Atom' ((grantor O) (grantee O)))))
+  (Atom' ((grantor O) (grantee C))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-49"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if (B has not graduated from college), but if not, then to C."""
+expected = """
+"""
+comment = "Complicated condition."
+
+[[tests]]
+citation = "Question 5-50"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B on condition that (B has passed the bar)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ((Generic "B has passed the bar")))
+   (Atom' ((grantor O) (grantee A))))
+  (While' Added
+   ((Occurs (Generic "B has passed the bar"))
+    ((Generic "B has passed the bar")))
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Condition precedent is evaluated prematurely."
+
+[[tests]]
+citation = "Question 5-51"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-52"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if (B does not then own an insurance agency)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ((Generic "B does not then own an insurance agency")))
+   (Atom' ((grantor O) (grantee A))))
+  (While' Added
+   ((Occurs (Generic "B does not then own an insurance agency"))
+    ((Generic "B does not then own an insurance agency")))
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Condition precedent is evaluated prematurely."
+
+[[tests]]
+citation = "Question 5-53"
+program = """
+O owns Blackacre.
+B marries.
+O conveys Blackacre to A for life, then to B if (B has married)."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A))
+   ((Not (Occurs (Dies A))) ((Generic "B has married")))
+   (Atom' ((grantor O) (grantee A))))
+  (While' Added
+   ((Occurs (Generic "B has married"))
+    ((Generic "B has married")))
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Complicated condition."
+
+[[tests]]
+citation = "Question 5-54"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B, however, if B divorces, B's estate ends."""
+expected = """ """
+comment = "Unsupported syntax: `estate ends`."
+
+[[tests]]
+citation = "Question 5-56"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for 10 years, then to B for 5 years."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForYears 10)) ((Not (Occurs (YearsPass 10))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (While' (Natural (ForYears 5)) ((Not (Occurs (YearsPass 5))) ())
+   (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-57"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A and the heirs of her body, then to B."""
+expected = """
+(Seq'
+ (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee B))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+
+[[tests]]
+citation = "Question 5-60"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if B marries.
+B marries.
+B divorces."""
+expected = """
+(Seq'
+ (Seq'
+  (While' (Natural (ForLife A)) ((Not (Occurs (Dies A))) ())
+   (Atom' ((grantor O) (grantee A))))
+  (If' ((Occurs (Marry B ())) ()) (Atom' ((grantor O) (grantee B)))))
+ (Atom' ((grantor O) (grantee O))))
+"""
+comment = "Condition precedent is evaluated prematurely."
+

@@ -1,0 +1,126 @@
+title = "General tests covering each basic case supported by the system"
+
+# Fee simple
+
+[[tests]]
+description = "Ownership of a property"
+program = """
+A owns Blackacre."""
+result = "Fee simple in O."
+
+[[tests]]
+description = "Conveyance of a property"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A."""
+result = "Fee simple in A."
+
+[[tests]]
+description = "A second conveyance of the same property is ineffective"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A.
+O conveys Blackacre to B."""
+result = "Fee simple in A."
+
+[[tests]]
+description = "A conveyance before the grantor takes ownership is ineffective"
+program = """
+O owns Blackacre.
+A conveys Blackacre to B.
+O conveys Blackacre to A."""
+result = "Fee simple in A."
+
+[[tests]]
+description = "Multiple successive conveyances"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A.
+A conveys Blackacre to B."""
+result = "Fee simple in A."
+
+# Life estates and related reversions
+
+[[tests]]
+description = "Conveyance of a property in life estate followed by reversion"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life."""
+result = "Life estate in A, reversion in fee simple in O."
+
+[[tests]]
+description = "Conveyance of a property in life estate followed by remainder"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B."""
+result = "Life estate in A, remainder in in B."
+
+[[tests]]
+description = "Successive life estates followed by reversion"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B for life."""
+result = "Life estate in A, Remainder in life estate in B, reversion in fee simple in O"
+
+[[tests]]
+description = "Conveyance by life estate holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+A conveys Blackacre to C.
+"""
+result = "Life estate in C, remainder in in B."
+
+[[tests]]
+description = "Conveyance by remainder holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B.
+B conveys Blackacre to C.
+"""
+result = "Life estate in A, remainder in fee simple in C."
+
+[[tests]]
+description = "Conveyance by reversion holder."
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life.
+O conveys Blackacre to B for life, then to C."""
+result = """
+Life estate in A, remainder in life estate in B (subject to divestment)
+remainder in life estate in C (vested)."""
+
+# Condition subsequent
+[[tests]]
+description = "Condition subsequent on A's death"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, but if A dies to B."""
+result = """
+O possibility of reverter in fee simple
+B power of termination in life estate
+O reversion in fee simple subject to condition subsequent
+A  life estate subject to condition subsequent
+"""
+
+# Condition precedent
+[[tests]]
+description = "Condition precedent on A's death"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B if A dies."""
+result = """
+B remainder in fee simple (contingent)
+O reversion in fee simple
+A  life estate"""
+
+# Executory limitation
+[[tests]]
+description = "Executory limitation on custom event"
+program = """
+O owns Blackacre.
+O conveys Blackacre to A for life, then to B but if (B graduates) to C."""
+result = """
+C executory interest in fee simple,
+B remainder in fee simple (vested subject to divestment),
+A life estate."""

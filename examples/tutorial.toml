@@ -1,0 +1,60 @@
+title = "Tutorial"
+
+[[examples]]
+description = "Life estate"
+program = """
+To A for life, then to B.
+A dies.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Multiple life estates and implicit remainder."
+program = """
+To A for life, then to B for life, then to C for life.
+B dies.
+A dies.
+C dies.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Executory limitation"
+program = """
+To Slughorn for life, but if Slughorn eats chocolate to Charlie Bucket.
+Slughorn dies.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Conflicting conveyances by same grantor; first in time prevails."
+program = """
+O conveys to A.
+O conveys to B for life, then to C.
+A conveys Blackacre to D.
+"""
+result = "Fee simple in D."
+
+[[examples]]
+description = "Alternative remainders."
+program = """
+To Lear for life, then if Goneril survives Regan to Goneril for life, otherwise to Regan, then to Cordelia and her heirs.
+"""
+result = "Life estate in Lear, contingent remainders in life estate in Goneril, contingent remainder in fee simple in Regan, contingent remainder in Cordelia."
+
+[[examples]]
+description = "Fee simple determinable."
+program = """
+To A and eir heirs so long as A is unmarried.
+A marries B.
+"""
+result = "Fee simple in O."
+
+[[examples]]
+description = "Term of years."
+program = """
+To Tenant for 10 years.
+5 years pass.
+5 years pass.
+"""
+result = "Fee simple in O."

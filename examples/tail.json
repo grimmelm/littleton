@@ -1,0 +1,34 @@
+[
+  "Examples",
+  {
+    "title": "Fee Tail",
+    "examples": [
+      {
+        "description": null,
+        "result": "Fee simple in P.",
+        "program":
+          "To A and the heirs of his body, then to P.\nA has child B.\nA dies.\nB has child C.\nB dies.\nC dies.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee tail in C (limited to A's descendants), remainder in fee simple in P.",
+        "program":
+          "To A and the heirs of her body, then to P.\nA has child B.\nA has child C.\nA dies.\nB has child D.\nB dies.\nD dies.\n"
+      },
+      {
+        "description": null,
+        "result":
+          "Fee tail in B (limited to A's descendants), remainder in fee simple in P.",
+        "program":
+          "To A and the heirs of her body, then to P.\nA has child B.\nA conveys to C for life.\nA dies.\n"
+      },
+      {
+        "description": null,
+        "result": "Fee simple in C.",
+        "program":
+          "To A and the heirs of her body, then to P.\nA has child B.\nA conveys to C.\n"
+      }
+    ]
+  }
+]

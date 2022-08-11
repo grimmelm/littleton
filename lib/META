@@ -1,0 +1,13 @@
+# OASIS_START
+# DO NOT EDIT (digest: 00de681a961b8772155f7fedffd01d09)
+version = "0.1"
+description = "A parser and interpreter for property conveyances"
+requires =
+"str core toml async cohttp cohttp.async yojson mparser mparser.re threads ocamlgraph ppx_sexp_conv ppx_deriving.show menhirLib"
+archive(byte) = "conveyance.cma"
+archive(byte, plugin) = "conveyance.cma"
+archive(native) = "conveyance.cmxa"
+archive(native, plugin) = "conveyance.cmxs"
+exists_if = "conveyance.cma"
+# OASIS_STOP
+

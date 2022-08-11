@@ -1,0 +1,147 @@
+title = "Accounting for Additional Future Interests, Class Gifts, and Subsequent Divesting"
+chapter = 7
+
+[[tests]]
+citation = "Page 87"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 87"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and her heirs, but if A divorces, then to B for life, then to O and his heirs."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 88"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A and his heirs until B reaches 30, then to B; however, if B ceases to use the land for church purposes, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 89"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C, but if C sells liquor on the property, then to D."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 91"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C, but if B sells liquor on the property, then to D."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 92"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B for life, then to C, but if A, B, or C ever sells liquor on the property, then to D."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 92"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B divorces, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 92"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B fails to give A a proper funeral within two months of A's death, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Page 93"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B divorces, then to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-4"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if B ever owns an insurance agency, then to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-5"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B for life if B has never owned a tavern, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-6"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 2 years, then to B, but if B ever uses the land for an insurance agency, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-7"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B, but if the city ever annexes the land, then to C."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-12"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to C and her heirs; however, if C ever uses the land for a rental, then to O."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-13"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for 10 years, then to B and her heirs, but if B divorces, then to C after A's estate has ended and until C ceases to live on the property, then to D."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-14"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B and his heirs while B is using the property for a law office, then to C; however, if C does not marry by age 35, then C's estate ends."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-15"
+program = """
+O owns Blackacre.\
+O conveys Blackacre to A for life, then to B if B survives A, but if B does not survive A, then to C if C has survived A, but if neither B nor C has survived A, then to D."""
+sexp = """
+"""
+
+[[tests]]
+citation = "Question 7-17"
+program = """
+O owns Blackacre.\
+B marries.\
+O conveys Blackacre to A for life, then to B if B has married, but if B has never married, then to C for 2 years, then to D and her heirs."""
+sexp = """
+"""

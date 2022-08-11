@@ -1,0 +1,77 @@
+title = "Executory Interests and Conditions Subsequent"
+
+[[examples]]
+description = "Fee simple with executory limitation"
+program = """
+To A so long as B has not graduated from college, then to B.
+"""
+result = "Fee simple with executory limitation in A, executory interest in fee simple in B."
+
+[[examples]]
+description = "Fee simple subject to executory limitation"
+program = """
+To A, but if B graduates from college to B.
+"""
+result = "Fee simple subject to executory limitation in A, executory interest in fee simple in B."
+
+[[examples]]
+description = "Fee simple subject to condition subsequent "
+program = """
+To A, but if B graduates from college the grantor may reenter.
+"""
+result = "Fee simple subject to executory limitation in A, power of termination in fee simple in O."
+
+[[examples]]
+description = "Executory interests take effect automatically"
+program = """
+To A, but if B graduates from college to B.
+B graduates college.
+"""
+result = "Fee simple in B."
+
+[[examples]]
+description = "Conditions subsequent require reentry"
+program = """
+To A, but if B graduates from college, the grantor may reenter.
+B graduates college.
+O reenters.
+"""
+result = "Fee simple in O"
+
+
+[[examples]]
+description = "Executory interests following limited interests imply reversions"
+program = """
+To A for life, but if B marries to B.
+"""
+result = "Life estate subject to executory limitation in A, reversion in fee simple subject to executory limitation in O, executory interest in fee simple in B."
+
+
+[[examples]]
+description = "Executory limitation with broad scope"
+program = """
+(To A for life, then to B), but if C marries to C.
+"""
+result = "Life estate subject to executory limitation in A, remainder in fee simple subject to executory limitation in B, executory interest in fee simple in C."
+
+
+[[examples]]
+description = "Executory limitation with narrow scope"
+program = """
+To A for life, then (to B, but if C marries to C).
+"""
+result = "Life estate in A, remainder in fee simple subject to executory limitation in B, executory interest in fee simple in C."
+
+[[examples]]
+description = "Executory interest of less than fee simple"
+program = """
+To A, but if B marries to B for life.
+"""
+result = "Fee simple in A, executory interest in life estate in B, possibility of reverter in O."
+
+[[examples]]
+description = "Springing executory interest"
+program = """
+To A for life, then after 5 years pass to B.
+"""
+result = "Fee simple in A, reversion subject to executory interest in O, (springing) executory interest in B."

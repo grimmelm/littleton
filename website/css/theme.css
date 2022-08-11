@@ -1,0 +1,428 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+:root {
+    --success: #dff0d8;
+    --cornell-red: #b31b1b;
+    --cornell-red2: #df1e12;
+    --cornell-blue: #006699;
+    --cornell-green: #6EB43F;
+    --cornell-text-green: #4B7B2B;
+    --cornell-navy: #073949;
+    --cornell-grey: #222222;
+}
+
+.bg-success {
+    background-color: var(--success)!important;
+}
+
+a {
+    text-decoration: underline;
+    text-decoration-color: var(--cornell-red);
+    text-decoration-style: dashed;
+    color: #000000;
+}
+
+a:hover {
+    color: var(--cornell-red);
+    text-decoration: none;
+}
+
+/* Navigation bar styles */
+.navbar-header {
+    float: none;
+}
+
+.navbar .navbar-brand {
+    color: var(--cornell-red);
+    font-family: "Charter", Georgia;
+    font-weight: normal;
+    font-size: 2.25em;
+    line-height: 1em;
+    width: 85%;
+}
+
+.navbar .navbar-brand a {
+    color: var(--cornell-red);
+    text-decoration: none;
+}
+
+#nav-links {
+    margin-left: 2em;
+    font-family: "Merriweather Sans", Helvetica, Arial;
+    text-decoration: none;
+}
+
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-item.active a {
+    background-color: var(--cornell-red);
+    color:var(--success);
+
+}
+
+.nav-item.active hover {
+    background-color: var(--cornell-red);
+    color:var(--success);
+}
+
+
+#abstract {
+    width: 85%;
+    margin: 1em auto 1em auto;
+}
+
+/* Basic content styles */
+#content h1 {
+    font-family: "Merriweather Sans", Helvetica, Arial;
+    color:#000000;
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+#content h2 {
+    font-family: "Merriweather Sans", Helvetica, Arial;
+    font-weight: bold;
+    color:#000000;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+#content h3 {
+    font-family: "Merriweather Sans", Helvetica, Arial;
+    font-weight: bold;
+    font-size: 1.25em;
+    color:#000000;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+#content p {
+    font-family: "Charter", Georgia;
+    font-size: 1.15em;
+    line-height: 1.25em;
+}
+
+#content ol, #content ul {
+    width: 85%;
+    line-height: 1.25em;
+    font-size: 1.1em;
+    font-family: "Charter", Georgia, Times New Roman, serif;
+    list-style-position: outside;
+    margin: 0.5em auto 1em auto;
+}
+
+/* Papers and venues */
+#content .paper h3 {
+    font-family: "Charter", Georgia, Times New Roman, serif;
+    font-size: 1.15em;
+    font-weight: normal;
+    margin: 0;
+}
+
+#content .paper p {
+    font-size: 1em;
+    line-height: 1.25em;
+    text-indent: 1.5em;
+}
+
+#content .paper p.venue {
+    font-family: Merriweather Sans, Helvetica, sans-serif;
+    font-size: .85em;
+    color:  var(--cornell-red);
+    line-height: 1.25em;
+    text-indent: 1.5em;
+    margin-top: 0;
+}
+
+/* Cards (mainly for example lists ) */
+.card { margin-bottom: 1em; }
+.card.example-list { margin-bottom: 0em; }
+
+.card-primary>.card-header,.card-header {
+    padding: .25rem 1.25rem;
+}
+
+#content .card-header>h3{
+    font-size: 1em;
+    font-family: "Merriweather Sans", Helvetica, sans-serif;
+    font-weight: normal;
+    margin-top:0.25em;
+    margin-bottom:0.25em;
+}
+
+.card-body {
+    padding: 0;
+    background-color: hsl(30,20%,95%);
+}
+
+.popover-content {
+    font-family: "Charter", Georgia;
+    width: 100%;
+    font-weight: lighter;
+}
+
+/* Example styles  */
+#examples { box-shadow: 0 2px 4px -2px rgba(0,0,0,0.4); }
+
+#examples ul.example-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "Charter", Georgia;
+    font-weight: lighter;
+    overflow-y: scroll;
+    max-height: 450px;
+}
+
+#examples div.card-header , #examples .card {
+    background-color: var(--cornell-red);
+    border-color: var(--cornell-red);
+}
+
+#examples div.card-header:hover {
+    color: #ffffff;
+    background-color: var(--cornell-red2);
+}
+
+#examples h3 {
+    color: #ffffff;
+    margin: 0;
+}
+
+.example {
+    font-weight: lighter;
+    font-size: 0.8em;
+}
+
+.example p { margin: 0; }
+
+.example:hover {
+    color: #1B58B8;
+    background-color: #f2f4f7;
+}
+
+.badge-up {
+    position: absolute;
+    color: var(--green);
+    background-color: #ffffff;
+    font-size: 1.5em;
+    padding: 0.1em;
+    margin-left: 85%;
+}
+
+/* Parameters */
+#parameters { box-shadow: 0 2px 4px -2px rgba(0,0,0,0.4); }
+
+#parameters form.param-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "Charter", Georgia;
+    font-weight: lighter;
+    overflow-y: scroll;
+    max-height: 450px;
+}
+
+#parameters div.form-row {
+    padding: .25rem 1.25rem;
+    background-color: #ffffff;
+}
+
+#parameters div.form-row:hover {
+    color: #1B58B8;
+    background-color: #f2f4f7;
+}
+
+#parameters h3 {
+    color: #ffffff;
+    margin: 0;
+}
+
+#parameters label{
+    font-family: "Charter", Georgia;
+    line-height: 1.25em;
+}
+
+
+/* Errors styles  */
+#errors { box-shadow: 0 2px 4px -2px rgba(0,0,0,0.4); }
+
+#errors ul.example-list {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "Fira Code";
+    font-weight: lighter;
+    overflow-y: scroll;
+    max-height: 450px;
+}
+
+#errors div.card-header , #examples .card {
+    background-color: var(--cornell-red);
+    border-color: var(--cornell-red);
+}
+
+#errors div.card-header:hover {
+    color: #ffffff;
+    background-color: var(--cornell-red2);
+}
+
+#errors h3 {
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Button Styles */
+button.btn, a.btn {
+    font-family: "Fira Code", monospace;
+    font-size: 0.85em;
+    text-decoration: none;
+}
+
+button.btn-tool, a.btn-tool { box-shadow: 0 2px 4px -2px rgba(0,0,0,0.4); }
+
+button.btn-example, button.btn-param {
+    font-family: "Merriweather Sans", Helvetica, sans-serif;
+    padding: 0;
+    color: #ffffff;
+}
+
+/* Common styling for all tutorial buttons */
+button.btn-tutorial {
+    font-family: "Fira Code";
+    font-weight: normal;
+    font-size: 1em;
+    color: #ffffff;
+    float: right;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+/* Different colors for different kinds of tutorial buttons */
+button.btn-run {
+    background-color:  var(--cornell-red);
+    border-color: var(--cornell-red);
+}
+
+button.btn-editable {
+    background-color:  var(--cornell-green);
+    border-color: var(--cornell-green);
+}
+
+button.btn-hide {
+    background-color:  var(--cornell-navy);
+    border-color: var(--cornell-navy);
+}
+
+button.btn-example:hover, button.btn-param:hover,
+button.btn-tutorial:hover {
+    color: #ffffff;
+    background-color: var(--cornell-blue);
+    border-color: var(--cornell-blue);
+}
+
+#content ul.dropdown-menu {
+    margin-top: 0;
+}
+
+.button-toolbar {
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+/*** Action Item Menu ***/
+/* Get rid of Bootstrap's caret */
+#actions .dropdown-toggle::after {
+    display: none;
+}
+
+#actions {
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+#action-menu {
+    width: 25em;
+}
+
+#action-menu strong {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#action-menu .action-header {
+    font-family: "Merriweather Sans", Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#action-menu .action-text {
+    font-family: "Merriweather Sans", Helvetica, sans-serif;
+    font-size: .85em;
+    text-decoration: none;
+}
+
+/*  Code Styles */
+textarea {
+    font-family: "Fira Code";
+    margin-bottom: 1em;
+}
+
+code,pre {
+    font-family: "Fira Code";
+    color: var(--cornell-red);
+    margin-bottom: 0;
+}
+
+.container-tut-eg {
+    border: medium solid var(--cornell-red);
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.container-tut-eg>hr {
+    border: 1px solid var(--cornell-red);
+}
+
+.editable {
+    padding: 0.25em;
+    border: 1px solid var(--cornell-text-green);
+    color: var(--cornell-text-green);
+}
+
+/* Icon Styles */
+a>i.fas {
+    min-height: 1em;
+    min-width: 1em;
+    color: var(--cornell-red);
+}
+
+button>i.fas {
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Unique elements */
+#try_it {
+    background-color:  var(--cornell-red);
+    border-color: var(--cornell-red);
+    font-weight: normal;
+    font-size: 1em;
+}
+
+#graph { font-size: 0.85em; }
+#entry_text { font-size: 0.85em; }
+#trace { background-color: #4e88c7; }
+
+.point { margin-top: 1em; }
+

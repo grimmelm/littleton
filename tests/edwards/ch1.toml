@@ -1,0 +1,8 @@
+title = "Intro"
+chapter = 1
+
+[[tests]]
+program = """
+O owns P.
+O conveys P to A."""
+expected = " (Seq' (Atom' ((grantor O) (grantee A))) (Atom' ((grantor O) (grantee O))))"

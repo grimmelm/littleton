@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Littleton Help</title>
+    </head>
+    <body class="vscode-body vscode-light">
+        <!-- title: Littleton Help --> 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/theme.css" rel="stylesheet">
+<link href="css/charter.css" rel="stylesheet">
+<link href="css/merriweather-sans.css" rel="stylesheet">
+<link href="css/fira_code.css" rel="stylesheet">
+<link href="css/awesome.css" rel="stylesheet">
+<link href="css/fontawesome.css" rel="stylesheet">
+ <nav class="navbar navbar-static-top navbar-expand-lg">
+      <div class="container">
+        <div class="navbar-header">
+          <h1 class="navbar-brand"><a href="/">Littleton Help</a></h1>
+        </div>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#nav-links"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-links">
+          <ul class="navbar-nav nav nav-pills ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interpreter.html">Interpreter</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="help.html">Help <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="textbook.html">Textbook</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<div id="content"  class="container" >
+<p>Littleton visualizes the results of <em>conveyances</em> like <code>O conveys to A for life, then to B.</code> or <code>Willy Wonka conveys Blackacre to Slughorn, but if Slughorn eats chocolate to Charlie.</code></p>
+<p>To use, type a sequence of one or more conveyances and events in the input box and click &quot;Interpret&quot;. The sequence must start by saying who owns the property initially, e.g. <code>O owns Blackacre.</code></p>
+<h2 id="types-of-conveyances">Types of Conveyances</h2>
+<p>A <em>conveyance</em> consists of the name of the grantor, the word <code>conveys</code>, and one or more grants describing the interests created. A <em>grant</em> must contain the word <code>to</code>, and the name of the grantee, e.g. <code>to Aethelstan</code>. A name consists of one or more words, each of which must start with capital letter, e.g. <code>A</code>, <code>Agatha</code>, or <code>John Doe</code>.</p>
+<p>Grant can optionally contain:</p>
+<ul>
+<li>Language describing the <em>quantum</em> or natural duration of the interest created, e.g., <code>to A and their heirs</code>, <code>to A for life</code>, <code>to Junior for the life of Senior</code>, <code>to Tenant for 5 years</code>, or <code>to Matilda and the heirs of her body</code>. (Littleton allows any single-word pronoun, e.g. <code>his</code>, <code>eir</code>, and <code>zir</code>). This language must immediately follow the name of the grantee. When no quantum is specified, Littleton follows the modern default of assuming a fee simple.</li>
+<li>Language adding a <em>special limitation</em> to the interest, e.g., <code>to Compeyson until Estella marries</code> or <code>to Barney so long as Barney does not drink wine</code>. Littleton currently recognizes the following conjunctions in creating special limitations: <code>while</code>, <code>until</code>, <code>so long as</code>, <code>provided that</code>, and <code>on condition that</code>. This language must follow the grantee (and quantum, if any).</li>
+<li>Language adding a <em>condition precedent</em>: e.g., <code>if Akira is unmarried to Akira</code>. This language must precede the grantee.
+A clause can contain none, some, or all of these, e.g. <code>if Biisuke is unmarried to Biita for life so long as Biigoro does not consume chocolate</code> contains all three.</li>
+</ul>
+<p>Grants can be linked with the words <code>, then</code> or <code>, but if</code>. (The comma is optional but recommended for clarity.) On the one hand, <code>then</code> expressees straightforward succession, as in <code>to A for life, then to B</code>. On the other, <code>but if</code> is used to create executory interests that can divest preceding interests, as in <code>to A, but if the property is used as a school to B</code>. The condition in a <code>but if</code> clause is mandatory.</p>
+<p>Parentheses can be placed around any grant or sequence of grants and are useful to resolve ambiguity in the scope of an executory limitation, e.g., <code>(to A for life, then to B), but if C marries to C</code> is different from <code>to A for life, then (to B, but if C marries to C)</code>.</p>
+<h2 id="conditions">Conditions</h2>
+<p>Littleton recognizes a limited but flexible set of conditions. Any condition on this list can be used as part of a special limitation (<code>while x</code> or <code>until x</code>), condition precedent (<code>if x</code>), or executory limitation (<code>but if x</code>):</p>
+<ul>
+<li><code>A is dead</code>.</li>
+<li><code>A is alive</code></li>
+<li><code>A survives B</code></li>
+<li><code>A and B marry</code> (present tense, true at the moment they marry), <code>A and B are married</code> (state of affairs, true as long as they are married), or <code>A and B have married</code> (perfect tense, true if they have ever been married). Any of these can also be written without the second spouse, e.g. <code>A marries</code>, in which case it will be true if A marries anyone.</li>
+<li><code>A and B divorce</code> (present tense) or <code>A and B have divorced</code> (perfect tense)</li>
+<li><code>the property is used as a school</code>. The use can be any single word, e.g. <code>school</code>, <code>factory</code>, or <code>farm</code>.</li>
+<li><code>A graduates law school</code>. Littleton also recognizes any single-word institution, e.g., <code>college</code> or <code>Brannigan</code>.</li>
+<li><code>A drinks alcohol</code>. The subtance can be any single word, e.g., <code>alcohol</code>, <code>drugs</code>, or <code>chocolate</code>. In addition, <code>consumes</code> and <code>eats</code> can be used as synonyms for <code>consumes</code>.</li>
+<li><code>Mars becomes a state</code>. Any single other single word can be used as the name of the jurisdiction</li>
+<li>&quot;Generic&quot; conditions, enclosed in parentheses, such as <code>(the Moon explodes)</code> or <code>(wild badger moles overrun the property)</code>.  Generic conditions are treated as black boxes, and Littleton makes no attempt to understand their contents.</li>
+</ul>
+<p>Most conditions can be negated with <code>not</code>, e.g., <code>A and B are not married</code> or <code>A does not graduate</code>, or put in the perfeect tense, e.g., <code>A has drunk alcohol</code>.</p>
+<p>Littleton does its best to update the state of title based on its knowledge of conditions.  At the simplest level, this involves terminating posseessory interests when they expire: A's death will cause the life estate created by <code>to A for life, then to B</code> to terminate and make B's remainder possessory. Littleton also does its best to update the state of title to reflect possibilities that must eventually or cannot happen.  So, for example, B's death will eliminate B's remainder from <code>to A for life, then to B for life, then to C</code> because it can never become possessory. Littleton will make this simplification even if takes place before A's death.</p>
+<h2 id="events">Events</h2>
+<p>Littleton can calculate the consequences of <em>events</em> like <code>A dies.</code> Events and conveyances can be freely interwoven. Put each event on its own line.</p>
+<pre><code><code><div>A and B marry.
+O conveys to A while A is married, then to C.
+B and A divorce.
+</div></code></code></pre>
+<p>Events currently recognized by Littleton include:</p>
+<pre><code><code><div>Xavier dies.
+Yolanda and Zelda marry.
+Yolanda and Zelda divorce.
+Winnifred reenters.
+5 years pass.
+the property is used as a school.
+Ahmed graduates.
+Bethanny has no living descendants.
+</div></code></code></pre>
+<p>The passage of time can be any positive integer, e.g. <code>2 years pass</code> or <code>19 years pass</code>.</p>
+<p>Littleton is capable of limited reasoning about the consequences of events, and will ignore events that are physically or legally impossible. For example it knows that dead people cannot consume alcohol, and that married people cannot marry someone else without first divorcing or becoming widow(er)ed.</p>
+<p>Littleton also recognizes <em>generic</em> events and conditions enclosed in parentheses, which it treats as black boxes that match corresponding generic conditions. For example, the event <code>(the Moon explodes).</code> triggers the condition in <code>to A, but if (the Moon explodes) to B</code> because what is betwen the parentheses matches exactly.</p>
+<h2 id="multiple-conveyances">Multiple Conveyances</h2>
+<p>Conveyances can be combined, e.g.:</p>
+<pre><code><code><div>O conveys to A for life.
+A conveys to C.
+O conveys to D while D is married, then to E.
+</div></code></code></pre>
+<p>If the grantor is omitted from a conveyance, as in <code>To A for life, then to B.</code>, Litteton assumes that the grantor is <code>O</code>. Conveyances can optionally contain the name of a property, as in <code>O conveys Blackacre to P.</code> but the name is ignored.</p>
+<h2 id="naming-vesting-and-the-rule-against-perpetuities">Naming, Vesting, and the Rule Against Perpetuities</h2>
+<p>Littleton does its best to name interests according to the system described in the Restatement (First) of Property. It computes a vesting status for every interest, but displays it only for remainders. It also applies the Rule Against Perpetuities to remainders and executory interests, doing its best with its limited knowledge of what is and is not possible in the real world.  For example, it knows that the condition precedent <code>if A consumes alcohol</code> must be satisfied or permanently fail within the lifetime of A, but that <code>until the property is used as a farm</code> need not be satisfied within any life in being plus 21 years.</p>
+<h2 id="about-littleton">About Littleton</h2>
+<p>Paper coming soon!</p>
+</div>
+    </body>
+    </html>
